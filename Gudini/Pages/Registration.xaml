@@ -36,7 +36,7 @@
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
-                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="120"/>
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="1">
@@ -44,7 +44,7 @@
                     Height="40"
                     Width="100"
                     VerticalAlignment="Top"
-                    Margin="40,40,40,0"
+                    Margin="0,40,0,0"
                     Background="Transparent"
                     BorderThickness="0"
                     Content="Выход" 
@@ -64,7 +64,7 @@
             <Grid   
               VerticalAlignment="Center"
               HorizontalAlignment="Center"
-              Margin="0,100,0,0">
+              Margin="100,100,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -87,7 +87,8 @@
                          Width="220"
                          Style="{StaticResource TextBoxStyle_Standart}"
                          Background="Transparent"
-                         x:Name="surname"/>
+                         x:Name="surname"
+                         TextChanged="surname_TextChanged"/>
                     <TextBlock Style="{StaticResource TextBlockStandart}"
                            Text="Имя"
                            Foreground="Black"
@@ -98,7 +99,8 @@
                          Width="220"
                          Style="{StaticResource TextBoxStyle_Standart}"
                          Background="Transparent"
-                         x:Name="name"/>
+                         x:Name="name"
+                         TextChanged="name_TextChanged"/>
                 </StackPanel>
 
                 <StackPanel Grid.Column="1" Margin="80,0,0,0">
@@ -112,7 +114,8 @@
                          Width="220"
                          Style="{StaticResource TextBoxStyle_Standart}"
                          Background="Transparent"
-                         x:Name="login"/>
+                         x:Name="login"
+                         TextChanged="login_TextChanged"/>
                     <TextBlock Style="{StaticResource TextBlockStandart}"
                            Text="Придумайте пароль"
                            Foreground="Black"
@@ -123,7 +126,8 @@
                          Width="220"
                          Style="{StaticResource TextBoxStyle_Standart}"
                          Background="Transparent"
-                         x:Name="password"/>
+                         x:Name="password"
+                         TextChanged="password_TextChanged"/>
                 </StackPanel>
 
                 <Button Grid.Row="1" Grid.ColumnSpan="2"

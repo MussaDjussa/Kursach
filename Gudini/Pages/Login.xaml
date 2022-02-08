@@ -13,7 +13,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="580"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="120"/>
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Column="2">
@@ -21,7 +21,7 @@
                     Height="40"
                     Width="100"
                     VerticalAlignment="Top"
-                    Margin="40,40,40,0"
+                    Margin="0,40,0,0"
                     Background="Transparent"
                     BorderThickness="0"
                     Content="Выход" 
@@ -57,7 +57,8 @@
 
         <StackPanel Grid.Column="1"
                     VerticalAlignment="Center"
-                    HorizontalAlignment="Center">
+                    HorizontalAlignment="Center"
+                    Margin="100,0,0,0">
             <TextBlock Style="{StaticResource TextBlockStandart}"
                            Text="Логин"
                            Foreground="Black"

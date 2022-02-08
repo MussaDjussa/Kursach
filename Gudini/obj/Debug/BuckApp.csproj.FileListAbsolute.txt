@@ -21,3 +21,9 @@ C:\Users\amush\Desktop\gudini\Gudini\obj\Debug\BuckApp.csproj.CoreCompileInputs.
 C:\Users\amush\Desktop\gudini\Gudini\obj\Debug\BuckApp.exe
 C:\Users\amush\Desktop\gudini\Gudini\obj\Debug\BuckApp.pdb
 C:\Users\amush\Desktop\gudini\Gudini\obj\Debug\BuckApp.csproj.AssemblyReference.cache
+C:\Users\amush\Desktop\Gudini\Gudini\bin\Debug\EntityFramework.dll
+C:\Users\amush\Desktop\Gudini\Gudini\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\amush\Desktop\Gudini\Gudini\bin\Debug\EntityFramework.xml
+C:\Users\amush\Desktop\Gudini\Gudini\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\amush\Desktop\Gudini\Gudini\obj\Debug\BuckApp.csproj.CopyComplete
+C:\Users\amush\Desktop\Gudini\Gudini\obj\Debug\BuckApp_Content.g.cs

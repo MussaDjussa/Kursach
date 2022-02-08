@@ -1,10 +1,15 @@
-﻿using BuckApp.Pages;
+﻿using BuckApp.Model;
+using BuckApp.Pages;
 using System.Windows;
 
 namespace BuckApp
 {
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// модель, через которую идёт обращение к БД
+        /// </summary>
+        public static BuckDBEntities model = new BuckDBEntities();
 
         /// <summary>
         /// создание стартовой страницы в началае навигационного стека

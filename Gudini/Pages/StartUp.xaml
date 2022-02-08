@@ -15,7 +15,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="580"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="120"/>
         </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="0"
@@ -44,7 +44,7 @@
             </StackPanel>
 
             <StackPanel Grid.Column="1"
-                        VerticalAlignment="Center">
+                        VerticalAlignment="Center" Grid.ColumnSpan="2">
                 <Button Style="{StaticResource ButtonStyle_Standart}"
                         Height="40"
                         Width="220"
@@ -71,8 +71,8 @@
                         Height="40"
                         VerticalAlignment="Top"
                         Grid.Row="0"
-                        Margin="0,40,40,40"
-                        HorizontalAlignment="Right"
+                        Margin="0,40,0,40"
+                        HorizontalAlignment="Center"
                         Style="{StaticResource ButtonStyle_Standart}"
                         Background="Transparent"
                         Content="Выход"

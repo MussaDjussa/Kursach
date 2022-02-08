@@ -69,7 +69,8 @@
                          Width="220"
                          Style="{StaticResource TextBoxStyle_Standart}"
                          Background="Transparent"
-                         x:Name="login"/>
+                         x:Name="login"
+                         TextChanged="login_TextChanged"/>
             <TextBlock Style="{StaticResource TextBlockStandart}"
                            Text="Пароль"
                            Foreground="Black"
@@ -80,11 +81,12 @@
                          Width="220"
                          Style="{StaticResource TextBoxStyle_Standart}"
                          Background="Transparent"
-                         x:Name="password"/>
+                         x:Name="password"
+                         TextChanged="password_TextChanged"/>
             <Button Content="Войти"
                     Style="{StaticResource ButtonStyle_Standart}"
                     Height="40"
-                    Margin="0,20"/>
+                    Margin="0,20" Click="Button_Click_2"/>
         </StackPanel>
 
         <Border Grid.RowSpan="2" Grid.Column="0" Panel.ZIndex="0">

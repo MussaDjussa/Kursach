@@ -49,7 +49,7 @@ namespace BuckApp.Pages
             {
                 if(UserLogin() != null)
                 {
-                    NavigationService.Navigate(MainWindow.startUp);
+                    NavigationService.Navigate(MainWindow.book); 
                 }
                 else
                 {

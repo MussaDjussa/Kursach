@@ -28,6 +28,11 @@ namespace BuckApp
         public static Login login = new Login();
 
         /// <summary>
+        /// создание страницы с книгами
+        /// </summary>
+        public static StoreBook book = new StoreBook();
+
+        /// <summary>
         /// Инициализация навигацинного стека для страниц
         /// </summary>
         public MainWindow()

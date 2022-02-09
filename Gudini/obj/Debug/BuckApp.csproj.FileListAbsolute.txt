@@ -27,3 +27,5 @@ C:\Users\amush\Desktop\Gudini\Gudini\bin\Debug\EntityFramework.xml
 C:\Users\amush\Desktop\Gudini\Gudini\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\amush\Desktop\Gudini\Gudini\obj\Debug\BuckApp.csproj.CopyComplete
 C:\Users\amush\Desktop\Gudini\Gudini\obj\Debug\BuckApp_Content.g.cs
+C:\Users\amush\Desktop\Gudini\Gudini\obj\Debug\Pages\StoreBook.g.cs
+C:\Users\amush\Desktop\Gudini\Gudini\obj\Debug\Pages\StoreBook.baml

@@ -13,7 +13,7 @@
         <EntityTypeShape EntityType="BuckDBModel.Status" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
         <EntityTypeShape EntityType="BuckDBModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="7" IsExpanded="true" />
         <EntityTypeShape EntityType="BuckDBModel.User" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="BuckDBModel.User_Book" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BuckDBModel.User_Book" Width="1.5" PointX="7.75" PointY="0.625" IsExpanded="true" />
         <AssociationConnector Association="BuckDBModel.FK_Book_Author" ManuallyRouted="false" />
         <AssociationConnector Association="BuckDBModel.FK_Genre_Book_Book" ManuallyRouted="false" />
         <AssociationConnector Association="BuckDBModel.FK_User_Book_Book" ManuallyRouted="false" />

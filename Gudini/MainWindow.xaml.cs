@@ -1,5 +1,6 @@
 ﻿using BuckApp.Model;
 using BuckApp.Pages;
+using BuckApp.ViewModel;
 using System.Windows;
 
 namespace BuckApp

@@ -1,33 +1,84 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using BuckApp.Model;
+using System.Windows.Data;
 using System.Linq;
 
 namespace BuckApp.ViewModel
 {
-    internal class StoreBook_ViewModel : INotifyPropertyChanged
+    public class StoreBook_ViewModel : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void OnPropertyChanged(string propertyname = null)
+        private User_Book _selectedItem;
+        private string _filtertext;
+        private ICollectionView _collectionView;
+        public User_Book SelectedItem
         {
-            if(PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyname));
-            }
+            get { return _selectedItem; }
+            set { _selectedItem = value; OnPropertyChanged("SelectedItem"); }
         }
 
         public ObservableCollection<User_Book> UserBook { get; set; } = new ObservableCollection<User_Book>();
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
+
+        public string FilterText
+        {
+            get { return _filtertext; }
+            set
+            {
+                if (value != null)
+                {
+                    _filtertext = value;
+                    _collectionView.Refresh(); 
+                    OnPropertyChanged("FilterText");
+                }
+
+            }
+        }
+
+
+        /// <summary>
+        /// определение объектов с модели к UserBook свойству(необходимо переделать)
+        /// </summary>
         public StoreBook_ViewModel()
         {
-            foreach(var item in MainWindow.model.User_Book.ToList())
+            foreach (var item in MainWindow.model.User_Book.ToList())
             {
                 UserBook.Add(item);
             }
+
+            _collectionView = CollectionViewSource.GetDefaultView(UserBook);
+            _collectionView.Filter = Filter;
         }
-        
 
+        private bool Filter(object obj)
+        {
+            User_Book user_Book = (User_Book)obj;
+            if (string.IsNullOrWhiteSpace(FilterText))
+            {
+                return true;
+            }
+            else if(user_Book.Book.Name.Contains(FilterText)){
+                return true;
+            }
+            else if(user_Book.Book.Author.LName.Contains(FilterText))
+            {
+                return true;
+            }
+            else if(user_Book.Book.Genre.Name.Contains(FilterText))
+            {
+                return true;
+            }
+            return false;
+        }
 
+        public void OnPropertyChanged(string propertyname = null)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyname));
+            }
+        }
     }
 }

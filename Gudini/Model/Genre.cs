@@ -18,6 +18,7 @@ namespace BuckApp.Model
         public Genre()
         {
             this.Genre_Book = new HashSet<Genre_Book>();
+            this.Book = new HashSet<Book>();
         }
     
         public int Id { get; set; }
@@ -25,5 +26,7 @@ namespace BuckApp.Model
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Genre_Book> Genre_Book { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Book> Book { get; set; }
     }
 }

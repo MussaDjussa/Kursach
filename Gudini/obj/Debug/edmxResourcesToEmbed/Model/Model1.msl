@@ -14,6 +14,7 @@
     <EntitySetMapping Name="Book">
       <EntityTypeMapping TypeName="BuckDBModel.Book">
         <MappingFragment StoreEntitySet="Book">
+          <ScalarProperty Name="Id_Genre" ColumnName="Id_Genre" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Id_Author" ColumnName="Id_Author" />

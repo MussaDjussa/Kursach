@@ -25,6 +25,7 @@
           <Property Name="ContentText" Type="varbinary(max)" />
           <Property Name="Year" Type="int" />
           <Property Name="Cover" Type="image" />
+          <Property Name="Id_Genre" Type="int" />
         </EntityType>
         <EntityType Name="Genre">
           <Key>
@@ -95,6 +96,18 @@
             </Principal>
             <Dependent Role="Book">
               <PropertyRef Name="Id_Author" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Book_Genre">
+          <End Role="Genre" Type="Self.Genre" Multiplicity="0..1" />
+          <End Role="Book" Type="Self.Book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genre">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Book">
+              <PropertyRef Name="Id_Genre" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -184,6 +197,10 @@
             <End Role="Author" EntitySet="Author" />
             <End Role="Book" EntitySet="Book" />
           </AssociationSet>
+          <AssociationSet Name="FK_Book_Genre" Association="Self.FK_Book_Genre">
+            <End Role="Genre" EntitySet="Genre" />
+            <End Role="Book" EntitySet="Book" />
+          </AssociationSet>
           <AssociationSet Name="FK_Genre_Book_Book" Association="Self.FK_Genre_Book_Book">
             <End Role="Book" EntitySet="Book" />
             <End Role="Genre_Book" EntitySet="Genre_Book" />
@@ -237,6 +254,8 @@
           <NavigationProperty Name="Author" Relationship="Self.FK_Book_Author" FromRole="Book" ToRole="Author" />
           <NavigationProperty Name="Genre_Book" Relationship="Self.FK_Genre_Book_Book" FromRole="Book" ToRole="Genre_Book" />
           <NavigationProperty Name="User_Book" Relationship="Self.FK_User_Book_Book" FromRole="Book" ToRole="User_Book" />
+          <Property Name="Id_Genre" Type="Int32" />
+          <NavigationProperty Name="Genre" Relationship="BuckDBModel.FK_Book_Genre" FromRole="Book" ToRole="Genre" />
         </EntityType>
         <EntityType Name="Genre">
           <Key>
@@ -245,6 +264,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Genre_Book" Relationship="Self.FK_Genre_Book_Genre" FromRole="Genre" ToRole="Genre_Book" />
+          <NavigationProperty Name="Book" Relationship="BuckDBModel.FK_Book_Genre" FromRole="Genre" ToRole="Book" />
         </EntityType>
         <EntityType Name="Genre_Book">
           <Key>
@@ -430,7 +450,23 @@
             <End Role="User" EntitySet="User" />
             <End Role="User_Book" EntitySet="User_Book" />
           </AssociationSet>
+          <AssociationSet Name="FK_Book_Genre" Association="BuckDBModel.FK_Book_Genre">
+            <End Role="Genre" EntitySet="Genre" />
+            <End Role="Book" EntitySet="Book" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_Book_Genre">
+          <End Type="BuckDBModel.Genre" Role="Genre" Multiplicity="0..1" />
+          <End Type="BuckDBModel.Book" Role="Book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genre">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Book">
+              <PropertyRef Name="Id_Genre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -450,6 +486,7 @@
           <EntitySetMapping Name="Book">
             <EntityTypeMapping TypeName="BuckDBModel.Book">
               <MappingFragment StoreEntitySet="Book">
+                <ScalarProperty Name="Id_Genre" ColumnName="Id_Genre" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id_Author" ColumnName="Id_Author" />

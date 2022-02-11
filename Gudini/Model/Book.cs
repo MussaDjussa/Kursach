@@ -28,11 +28,13 @@ namespace BuckApp.Model
         public byte[] ContentText { get; set; }
         public Nullable<int> Year { get; set; }
         public byte[] Cover { get; set; }
+        public Nullable<int> Id_Genre { get; set; }
     
         public virtual Author Author { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Genre_Book> Genre_Book { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<User_Book> User_Book { get; set; }
+        public virtual Genre Genre { get; set; }
     }
 }

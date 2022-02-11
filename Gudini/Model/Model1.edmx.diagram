@@ -21,6 +21,7 @@
         <AssociationConnector Association="BuckDBModel.FK_User_Role" ManuallyRouted="false" />
         <AssociationConnector Association="BuckDBModel.FK_User_Book_Status" ManuallyRouted="false" />
         <AssociationConnector Association="BuckDBModel.FK_User_Book_User" ManuallyRouted="false" />
+        <AssociationConnector Association="BuckDBModel.FK_Book_Genre" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

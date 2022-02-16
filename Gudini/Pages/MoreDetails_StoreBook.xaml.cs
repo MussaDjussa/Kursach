@@ -1,6 +1,22 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using BuckApp.Model;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+using System.IO;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
+using DocumentFormat.OpenXml.Packaging;
+using System.Windows.Forms;
+using System.Text;
+using System;
+using System.Drawing;
+using System.Activities.Statements;
+using DocumentFormat.OpenXml.Wordprocessing;
+using Aspose.Words;
+using Document = Aspose.Words.Document;
+using Body = DocumentFormat.OpenXml.Wordprocessing.Body;
+
 namespace BuckApp.Pages
 {
     /// <summary>
@@ -8,12 +24,20 @@ namespace BuckApp.Pages
     /// </summary>
     public partial class MoreDetails_StoreBook : Page
     {
-        public MoreDetails_StoreBook()
+        Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+       
+        public static Book newbook;
+        public static String textBook;
+        public MoreDetails_StoreBook(Book book)
 
         {
             InitializeComponent();
-            DataContext = MainWindow.book.ViewModel.SelectedItem;
+            newbook = book;
+            DataContext = newbook;
         }
+
+
+       
         /// <summary>
         /// закрытие приложения
         /// </summary>
@@ -21,7 +45,7 @@ namespace BuckApp.Pages
         /// <param name="e"></param>
         private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            App.Current.Shutdown();
         }
         /// <summary>
         /// Навигация к предыдущей странице
@@ -31,6 +55,48 @@ namespace BuckApp.Pages
         private void Button_Click_1(object sender, System.Windows.RoutedEventArgs e)
         {
             NavigationService.GoBack();
+        }
+
+        private void LesenButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new LesenPage(DataContext as Book));
+        }
+
+      
+
+        private void Add_Click_1(object sender, RoutedEventArgs e)
+        {
+            String str;
+            dlg.Title = "text selection";
+            dlg.Filter = "TXT(.txt)|*.txt|DOCX(.docx)|*.docx";
+            if (dlg.ShowDialog() == true)
+            {
+                if (dlg.FileName.EndsWith(".txt"))
+                {
+
+                    byte[] bytes = System.IO.File.ReadAllBytes(dlg.FileName);
+                    newbook.ContentText = bytes;
+                }
+                else
+                {
+                    //Document doc = new Document(dlg.FileName);
+                    //MemoryStream outStream = new MemoryStream();
+                    //doc.Save(outStream, SaveFormat.Docx);
+                    //byte[] docBytes = Encoding.Unicode.GetBytes();
+
+                    //newbook.ContentText = docBytes;
+
+                    using (WordprocessingDocument wordDoc = WordprocessingDocument.Open(dlg.FileName, true))
+                    {
+                        Body text = wordDoc.MainDocumentPart.Document.Body;
+                        textBook = text.InnerText.ToString();
+                        byte[] docBytes = Encoding.Unicode.GetBytes(textBook);
+                        newbook.ContentText = docBytes;
+                    }
+
+                }
+                
+            }
         }
     }
 }

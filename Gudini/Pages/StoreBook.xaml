@@ -378,7 +378,7 @@
                        FontWeight="Bold"
                        FontSize="36"
                        VerticalAlignment="Center"/>
-            <TextBox Style="{DynamicResource TextBoxStyle_Search}"
+            <TextBox TextChanged="filterBox_TextChanged" Style="{DynamicResource TextBoxStyle_Search}"
                      Margin="30"
                      Text="{Binding FilterText, UpdateSourceTrigger=PropertyChanged}"
                      x:Name="filterBox">
@@ -405,10 +405,10 @@
                                VerticalAlignment="Bottom"
                                FontSize="40"/>
 
-                    <ListView Grid.Row="1" ItemsSource="{Binding UserBook}"
+                    <ListView x:Name="ListBook" Grid.Row="1" ItemsSource="{Binding UserBook}"
                               ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                               BorderThickness="0"
-                              SelectedItem="{Binding SelectedItem}"
+                              SelectedItem="{Binding SelectedItem}" 
                               SelectionChanged="ListView_SelectionChanged">
                         <ListView.ItemsPanel>
                             <ItemsPanelTemplate>
@@ -420,17 +420,17 @@
 
                                 <Border Height="485" Width="332" Background="#D4D5C6" CornerRadius="30" Margin="30">
                                     <StackPanel>
-                                        <Image Source="{Binding Book.Cover}"
+                                        <Image Source="{Binding Cover}"
                                                Height="400" Width="332"
                                                Stretch="Fill"/>
-                                        <TextBlock Text="{Binding Book.Name}"
+                                        <TextBlock Text="{Binding Name}"
                                                    Style="{StaticResource TextBlockStandart}"
                                                    FontSize="16"
                                                    Opacity="0.7"
                                                    HorizontalAlignment="Center"
                                                    Margin="0,10,0,5"/>
                                         <Border Width="285" Background="Black" HorizontalAlignment="Center" Height="1" Opacity="0.3"/>
-                                        <TextBlock Text="{Binding Book.Author.LName}"
+                                        <TextBlock Text="{Binding Author.LName}"
                                                    Style="{StaticResource ResourceKey=TextBlockStandart}"
                                                    FontSize="16"
                                                    Opacity="0.7"

@@ -10,7 +10,7 @@ namespace BuckApp
         /// <summary>
         /// модель, через которую идёт обращение к БД
         /// </summary>
-        public static BuckDBEntities model = new BuckDBEntities();
+        public static BuckDBEntities1 model = new BuckDBEntities1();
 
         /// <summary>
         /// создание стартовой страницы в началае навигационного стека

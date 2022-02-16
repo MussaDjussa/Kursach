@@ -3,6 +3,7 @@ using System.ComponentModel;
 using BuckApp.Model;
 using System.Windows.Data;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace BuckApp.ViewModel
 {
@@ -43,8 +44,10 @@ namespace BuckApp.ViewModel
         /// </summary>
         public StoreBook_ViewModel()
         {
-            foreach (var item in MainWindow.model.User_Book.ToList())
+            Pages.Login.user.Id = 2;
+            foreach (var item in MainWindow.model.User_Book.ToList().Where(c=> c.User.Id == Pages.Login.user.Id))
             {
+               
                 UserBook.Add(item);
             }
 
@@ -54,19 +57,21 @@ namespace BuckApp.ViewModel
 
         private bool Filter(object obj)
         {
-            User_Book user_Book = (User_Book)obj;
+            User_Book User_Book = (User_Book)obj;
             if (string.IsNullOrWhiteSpace(FilterText))
             {
                 return true;
             }
-            else if(user_Book.Book.Name.Contains(FilterText)){
-                return true;
-            }
-            else if(user_Book.Book.Author.LName.Contains(FilterText))
+            else if(User_Book.Book.Name.Contains(FilterText))
             {
                 return true;
             }
-            else if(user_Book.Book.Genre.Name.Contains(FilterText))
+            else if(User_Book.Book.Author.LName.Contains(FilterText))
+            {
+                return true;
+            }
+            else if (User_Book.Book.Genre.Name.Contains(FilterText)) 
+                
             {
                 return true;
             }

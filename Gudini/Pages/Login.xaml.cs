@@ -11,6 +11,7 @@ namespace BuckApp.Pages
     /// </summary>
     public partial class Login : Page
     {
+        public static User user = new User();
         public Login()
         {
             InitializeComponent();
@@ -91,8 +92,8 @@ namespace BuckApp.Pages
         /// <returns>user</returns>
         private User UserLogin()
         {
-            User findUser = MainWindow.model.User.ToList().Find(q=>q.Login == login.Text && q.Password == password.Text);
-            return findUser;
+            user = MainWindow.model.User.ToList().Find(q=>q.Login == login.Text && q.Password == password.Text);
+            return user;
         }
         
     }

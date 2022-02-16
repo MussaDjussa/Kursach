@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BuckDBModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Author">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="FName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Book" Relationship="Self.FK_Book_Author" FromRole="Author" ToRole="Book" />
+  </EntityType>
+  <EntityType Name="Book">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Id_Author" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ContentText" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Year" Type="Int32" />
+    <Property Name="Cover" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Author" Relationship="Self.FK_Book_Author" FromRole="Book" ToRole="Author" />
+    <NavigationProperty Name="Genre_Book" Relationship="Self.FK_Genre_Book_Book" FromRole="Book" ToRole="Genre_Book" />
+    <NavigationProperty Name="User_Book" Relationship="Self.FK_User_Book_Book" FromRole="Book" ToRole="User_Book" />
+    <Property Name="Cost" Type="Single" />
+    <Property Name="Discount" Type="Single" />
+    <Property Name="Id_Genre" Type="Int32" />
+    <NavigationProperty Name="Genre" Relationship="BuckDBModel1.FK_Book_Genre" FromRole="Book" ToRole="Genre" />
+  </EntityType>
+  <EntityType Name="Genre">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Genre_Book" Relationship="Self.FK_Genre_Book_Genre" FromRole="Genre" ToRole="Genre_Book" />
+    <NavigationProperty Name="Book" Relationship="BuckDBModel1.FK_Book_Genre" FromRole="Genre" ToRole="Book" />
+  </EntityType>
+  <EntityType Name="Genre_Book">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Id_Book" Type="Int32" />
+    <Property Name="Id_Genre" Type="Int32" />
+    <NavigationProperty Name="Book" Relationship="Self.FK_Genre_Book_Book" FromRole="Genre_Book" ToRole="Book" />
+    <NavigationProperty Name="Genre" Relationship="Self.FK_Genre_Book_Genre" FromRole="Genre_Book" ToRole="Genre" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="Self.FK_User_Role" FromRole="Role" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User_Book" Relationship="Self.FK_User_Book_Status" FromRole="Status" ToRole="User_Book" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="FName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Id_Role" Type="Int32" />
+    <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
+    <NavigationProperty Name="User_Book" Relationship="Self.FK_User_Book_User" FromRole="User" ToRole="User_Book" />
+    <Property Name="Balance" Type="Single" />
+  </EntityType>
+  <EntityType Name="User_Book">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Id_User" Type="Int32" />
+    <Property Name="Id_Book" Type="Int32" />
+    <Property Name="Id_Status" Type="Int32" />
+    <Property Name="Rating" Type="Single" />
+    <NavigationProperty Name="Book" Relationship="Self.FK_User_Book_Book" FromRole="User_Book" ToRole="Book" />
+    <NavigationProperty Name="Status" Relationship="Self.FK_User_Book_Status" FromRole="User_Book" ToRole="Status" />
+    <NavigationProperty Name="User" Relationship="Self.FK_User_Book_User" FromRole="User_Book" ToRole="User" />
+    <Property Name="Date_Buy" Type="DateTime" Precision="3" />
+  </EntityType>
+  <Association Name="FK_Book_Author">
+    <End Role="Author" Type="Self.Author" Multiplicity="0..1" />
+    <End Role="Book" Type="Self.Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Author">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Book">
+        <PropertyRef Name="Id_Author" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Genre_Book_Book">
+    <End Role="Book" Type="Self.Book" Multiplicity="0..1" />
+    <End Role="Genre_Book" Type="Self.Genre_Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Book">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Genre_Book">
+        <PropertyRef Name="Id_Book" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Book_Book">
+    <End Role="Book" Type="Self.Book" Multiplicity="0..1" />
+    <End Role="User_Book" Type="Self.User_Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Book">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User_Book">
+        <PropertyRef Name="Id_Book" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Genre_Book_Genre">
+    <End Role="Genre" Type="Self.Genre" Multiplicity="0..1" />
+    <End Role="Genre_Book" Type="Self.Genre_Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Genre">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Genre_Book">
+        <PropertyRef Name="Id_Genre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="Id_Role" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Book_Status">
+    <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+    <End Role="User_Book" Type="Self.User_Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User_Book">
+        <PropertyRef Name="Id_Status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Book_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="User_Book" Type="Self.User_Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User_Book">
+        <PropertyRef Name="Id_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BuckDBEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Author" EntityType="Self.Author" />
+    <EntitySet Name="Book" EntityType="Self.Book" />
+    <EntitySet Name="Genre" EntityType="Self.Genre" />
+    <EntitySet Name="Genre_Book" EntityType="Self.Genre_Book" />
+    <EntitySet Name="Role" EntityType="Self.Role" />
+    <EntitySet Name="Status" EntityType="Self.Status" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="User" EntityType="Self.User" />
+    <EntitySet Name="User_Book" EntityType="Self.User_Book" />
+    <AssociationSet Name="FK_Book_Author" Association="Self.FK_Book_Author">
+      <End Role="Author" EntitySet="Author" />
+      <End Role="Book" EntitySet="Book" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Genre_Book_Book" Association="Self.FK_Genre_Book_Book">
+      <End Role="Book" EntitySet="Book" />
+      <End Role="Genre_Book" EntitySet="Genre_Book" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Book_Book" Association="Self.FK_User_Book_Book">
+      <End Role="Book" EntitySet="Book" />
+      <End Role="User_Book" EntitySet="User_Book" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Genre_Book_Genre" Association="Self.FK_Genre_Book_Genre">
+      <End Role="Genre" EntitySet="Genre" />
+      <End Role="Genre_Book" EntitySet="Genre_Book" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Book_Status" Association="Self.FK_User_Book_Status">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="User_Book" EntitySet="User_Book" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Book_User" Association="Self.FK_User_Book_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="User_Book" EntitySet="User_Book" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Book_Genre" Association="BuckDBModel1.FK_Book_Genre">
+      <End Role="Genre" EntitySet="Genre" />
+      <End Role="Book" EntitySet="Book" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association Name="FK_Book_Genre">
+    <End Type="BuckDBModel1.Genre" Role="Genre" Multiplicity="0..1" />
+    <End Type="BuckDBModel1.Book" Role="Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Genre">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Book">
+        <PropertyRef Name="Id_Genre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

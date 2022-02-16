@@ -31,3 +31,45 @@ C:\Users\amush\Desktop\Gudini\Gudini\obj\Debug\BuckApp.csproj.CopyComplete
 C:\Users\amush\Desktop\Gudini\Gudini\obj\Debug\BuckApp.exe
 C:\Users\amush\Desktop\Gudini\Gudini\obj\Debug\BuckApp.pdb
 C:\Users\amush\Desktop\Gudini\Gudini\obj\Debug\BuckApp.csproj.AssemblyReference.cache
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\bin\Debug\BuckApp.exe.config
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\bin\Debug\BuckApp.exe
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\bin\Debug\BuckApp.pdb
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\bin\Debug\EntityFramework.dll
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\bin\Debug\EntityFramework.xml
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\obj\Debug\BuckApp.csproj.SuggestedBindingRedirects.cache
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\obj\Debug\MainWindow.g.cs
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\obj\Debug\Pages\Login.g.cs
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\obj\Debug\Pages\MoreDetails_StoreBook.g.cs
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\obj\Debug\Pages\Registration.g.cs
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\obj\Debug\Pages\StartUp.g.cs
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\obj\Debug\Pages\StoreBook.g.cs
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\obj\Debug\App.g.cs
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\obj\Debug\BuckApp_Content.g.cs
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\obj\Debug\BuckApp_MarkupCompile.cache
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\obj\Debug\BuckApp_MarkupCompile.lref
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\obj\Debug\App.baml
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\obj\Debug\MainWindow.baml
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\obj\Debug\Pages\Login.baml
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\obj\Debug\Pages\MoreDetails_StoreBook.baml
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\obj\Debug\Pages\Registration.baml
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\obj\Debug\Pages\StartUp.baml
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\obj\Debug\Pages\StoreBook.baml
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\obj\Debug\BuckApp.g.resources
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\obj\Debug\BuckApp.Properties.Resources.resources
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\obj\Debug\BuckApp.csproj.GenerateResource.cache
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\obj\Debug\BuckApp.csproj.CoreCompileInputs.cache
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\obj\Debug\BuckApp.csproj.CopyComplete
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\obj\Debug\BuckApp.exe
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\obj\Debug\BuckApp.pdb
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\obj\Debug\Pages\LesenPage.g.cs
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\obj\Debug\Pages\LesenPage.baml
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\obj\Debug\BuckApp.csproj.AssemblyReference.cache
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\bin\Debug\Aspose.Words.dll
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\bin\Debug\Aspose.Words.Pdf2Word.dll
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\bin\Debug\Aspose.Words.xml

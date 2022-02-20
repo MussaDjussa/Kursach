@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DemoTest2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Material">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Id_Type_Material" Type="Int32" />
+    <Property Name="Count_in_packaging" Type="Int32" />
+    <Property Name="Id_Unit" Type="Int32" />
+    <Property Name="Count_in_storage" Type="Int32" />
+    <Property Name="Min_remains" Type="Int32" />
+    <Property Name="Cost" Type="Single" />
+    <NavigationProperty Name="Type_Material" Relationship="Self.FK_Material_Type_Material" FromRole="Material" ToRole="Type_Material" />
+    <NavigationProperty Name="Unit" Relationship="Self.FK_Material_Unit" FromRole="Material" ToRole="Unit" />
+    <NavigationProperty Name="Production" Relationship="Self.FK_Production_Material" FromRole="Material" ToRole="Production" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Article" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Min_cost_from_agent" Type="Single" />
+    <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Id_Type_product" Type="Int32" />
+    <Property Name="Count_Person" Type="Int32" />
+    <Property Name="Number_WorkShop" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Type_Product" Relationship="Self.FK_Product_Type_Product" FromRole="Product" ToRole="Type_Product" />
+    <NavigationProperty Name="Production" Relationship="Self.FK_Production_Product" FromRole="Product" ToRole="Production" />
+  </EntityType>
+  <EntityType Name="Production">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Id_Product" Type="Int32" />
+    <Property Name="Id_Material" Type="Int32" />
+    <Property Name="Count_Material" Type="Int32" />
+    <NavigationProperty Name="Material" Relationship="Self.FK_Production_Material" FromRole="Production" ToRole="Material" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_Production_Product" FromRole="Production" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Type_Material">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Material" Relationship="Self.FK_Material_Type_Material" FromRole="Type_Material" ToRole="Material" />
+  </EntityType>
+  <EntityType Name="Type_Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_Product_Type_Product" FromRole="Type_Product" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Unit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Material" Relationship="Self.FK_Material_Unit" FromRole="Unit" ToRole="Material" />
+  </EntityType>
+  <Association Name="FK_Material_Type_Material">
+    <End Role="Type_Material" Type="Self.Type_Material" Multiplicity="0..1" />
+    <End Role="Material" Type="Self.Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Type_Material">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Material">
+        <PropertyRef Name="Id_Type_Material" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Material_Unit">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="0..1" />
+    <End Role="Material" Type="Self.Material" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Material">
+        <PropertyRef Name="Id_Unit" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Production_Material">
+    <End Role="Material" Type="Self.Material" Multiplicity="0..1" />
+    <End Role="Production" Type="Self.Production" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Material">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Production">
+        <PropertyRef Name="Id_Material" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Type_Product">
+    <End Role="Type_Product" Type="Self.Type_Product" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Type_Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="Id_Type_product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Production_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="Production" Type="Self.Production" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Production">
+        <PropertyRef Name="Id_Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DemoTest2Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Material" EntityType="Self.Material" />
+    <EntitySet Name="Product" EntityType="Self.Product" />
+    <EntitySet Name="Production" EntityType="Self.Production" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Type_Material" EntityType="Self.Type_Material" />
+    <EntitySet Name="Type_Product" EntityType="Self.Type_Product" />
+    <EntitySet Name="Unit" EntityType="Self.Unit" />
+    <AssociationSet Name="FK_Material_Type_Material" Association="Self.FK_Material_Type_Material">
+      <End Role="Type_Material" EntitySet="Type_Material" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Material_Unit" Association="Self.FK_Material_Unit">
+      <End Role="Unit" EntitySet="Unit" />
+      <End Role="Material" EntitySet="Material" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Production_Material" Association="Self.FK_Production_Material">
+      <End Role="Material" EntitySet="Material" />
+      <End Role="Production" EntitySet="Production" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Type_Product" Association="Self.FK_Product_Type_Product">
+      <End Role="Type_Product" EntitySet="Type_Product" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Production_Product" Association="Self.FK_Production_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Production" EntitySet="Production" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

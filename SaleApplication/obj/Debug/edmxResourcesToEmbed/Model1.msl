@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище salesaleModelContainer" CdmEntityContainer="salesaleEntities">
+    <EntitySetMapping Name="Guilds">
+      <EntityTypeMapping TypeName="salesaleModel.Guild">
+        <MappingFragment StoreEntitySet="Guilds">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Materials">
+      <EntityTypeMapping TypeName="salesaleModel.Material">
+        <MappingFragment StoreEntitySet="Material">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="material_type" ColumnName="material_type" />
+          <ScalarProperty Name="count_in_package" ColumnName="count_in_package" />
+          <ScalarProperty Name="unit" ColumnName="unit" />
+          <ScalarProperty Name="amount_storage" ColumnName="amount_storage" />
+          <ScalarProperty Name="min_possible_amount" ColumnName="min_possible_amount" />
+          <ScalarProperty Name="price" ColumnName="price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="salesaleModel.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="article" ColumnName="article" />
+          <ScalarProperty Name="min_price_agent" ColumnName="min_price_agent" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="type_product" ColumnName="type_product" />
+          <ScalarProperty Name="min_amount_people" ColumnName="min_amount_people" />
+          <ScalarProperty Name="guild" ColumnName="guild" />
+          <ScalarProperty Name="width_product" ColumnName="width_product" />
+          <ScalarProperty Name="lenght_product" ColumnName="lenght_product" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Productions">
+      <EntityTypeMapping TypeName="salesaleModel.Production">
+        <MappingFragment StoreEntitySet="Production">
+          <ScalarProperty Name="id_production" ColumnName="id_production" />
+          <ScalarProperty Name="id_product" ColumnName="id_product" />
+          <ScalarProperty Name="id_material" ColumnName="id_material" />
+          <ScalarProperty Name="min_amount_material" ColumnName="min_amount_material" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeMaterials">
+      <EntityTypeMapping TypeName="salesaleModel.TypeMaterial">
+        <MappingFragment StoreEntitySet="TypeMaterial">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeProducts">
+      <EntityTypeMapping TypeName="salesaleModel.TypeProduct">
+        <MappingFragment StoreEntitySet="TypeProduct">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeUnits">
+      <EntityTypeMapping TypeName="salesaleModel.TypeUnit">
+        <MappingFragment StoreEntitySet="TypeUnit">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

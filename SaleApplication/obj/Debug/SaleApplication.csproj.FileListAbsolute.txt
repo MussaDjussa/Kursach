@@ -1,0 +1,52 @@
+C:\source\repos\SaleApplication\SaleApplication\obj\Debug\MainWindow.g.cs
+C:\source\repos\SaleApplication\SaleApplication\obj\Debug\App.g.cs
+C:\source\repos\SaleApplication\SaleApplication\obj\Debug\SaleApplication_Content.g.cs
+C:\source\repos\SaleApplication\SaleApplication\obj\Debug\SaleApplication_MarkupCompile.cache
+C:\source\repos\SaleApplication\SaleApplication\obj\Debug\SaleApplication_MarkupCompile.lref
+C:\source\repos\SaleApplication\SaleApplication\bin\Debug\SaleApplication.exe.config
+C:\source\repos\SaleApplication\SaleApplication\bin\Debug\SaleApplication.exe
+C:\source\repos\SaleApplication\SaleApplication\bin\Debug\SaleApplication.pdb
+C:\source\repos\SaleApplication\SaleApplication\bin\Debug\EntityFramework.dll
+C:\source\repos\SaleApplication\SaleApplication\bin\Debug\EntityFramework.SqlServer.dll
+C:\source\repos\SaleApplication\SaleApplication\bin\Debug\EntityFramework.xml
+C:\source\repos\SaleApplication\SaleApplication\bin\Debug\EntityFramework.SqlServer.xml
+C:\source\repos\SaleApplication\SaleApplication\bin\Debug\ru\EntityFramework.resources.dll
+C:\source\repos\SaleApplication\SaleApplication\obj\Debug\MainWindow.baml
+C:\source\repos\SaleApplication\SaleApplication\obj\Debug\SaleApplication.g.resources
+C:\source\repos\SaleApplication\SaleApplication\obj\Debug\SaleApplication.Properties.Resources.resources
+C:\source\repos\SaleApplication\SaleApplication\obj\Debug\SaleApplication.csproj.GenerateResource.cache
+C:\source\repos\SaleApplication\SaleApplication\obj\Debug\SaleApplication.csproj.CoreCompileInputs.cache
+C:\source\repos\SaleApplication\SaleApplication\obj\Debug\SaleApplication.csproj.CopyComplete
+C:\source\repos\SaleApplication\SaleApplication\obj\Debug\SaleApplication.exe
+C:\source\repos\SaleApplication\SaleApplication\obj\Debug\SaleApplication.pdb
+C:\source\repos\SaleApplication\SaleApplication\obj\Debug\App.baml
+C:\source\repos\SaleApplication\SaleApplication\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\source\repos\SaleApplication\SaleApplication\obj\Debug\SaleApplication.csproj.AssemblyReference.cache
+C:\source\repos\SaleApplication\SaleApplication\obj\Debug\EditOrAddProduct.g.cs
+C:\source\repos\SaleApplication\SaleApplication\obj\Debug\EditOrAddProduct.baml
+C:\Users\gidin\OneDrive\Рабочий стол\SaleApplication\SaleApplication\obj\Debug\SaleApplication.csproj.SuggestedBindingRedirects.cache
+C:\Users\gidin\OneDrive\Рабочий стол\SaleApplication\SaleApplication\obj\Debug\EditOrAddProduct.g.cs
+C:\Users\gidin\OneDrive\Рабочий стол\SaleApplication\SaleApplication\obj\Debug\MainWindow.g.cs
+C:\Users\gidin\OneDrive\Рабочий стол\SaleApplication\SaleApplication\obj\Debug\App.g.cs
+C:\Users\gidin\OneDrive\Рабочий стол\SaleApplication\SaleApplication\obj\Debug\SaleApplication_Content.g.cs
+C:\Users\gidin\OneDrive\Рабочий стол\SaleApplication\SaleApplication\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\gidin\OneDrive\Рабочий стол\SaleApplication\SaleApplication\obj\Debug\SaleApplication_MarkupCompile.cache
+C:\Users\gidin\OneDrive\Рабочий стол\SaleApplication\SaleApplication\obj\Debug\SaleApplication_MarkupCompile.lref
+C:\Users\gidin\OneDrive\Рабочий стол\SaleApplication\SaleApplication\obj\Debug\SaleApplication.exe
+C:\Users\gidin\OneDrive\Рабочий стол\SaleApplication\SaleApplication\obj\Debug\SaleApplication.pdb
+C:\Users\gidin\OneDrive\Рабочий стол\SaleApplication\SaleApplication\bin\Debug\SaleApplication.exe.config
+C:\Users\gidin\OneDrive\Рабочий стол\SaleApplication\SaleApplication\bin\Debug\SaleApplication.exe
+C:\Users\gidin\OneDrive\Рабочий стол\SaleApplication\SaleApplication\bin\Debug\SaleApplication.pdb
+C:\Users\gidin\OneDrive\Рабочий стол\SaleApplication\SaleApplication\bin\Debug\EntityFramework.dll
+C:\Users\gidin\OneDrive\Рабочий стол\SaleApplication\SaleApplication\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\gidin\OneDrive\Рабочий стол\SaleApplication\SaleApplication\bin\Debug\EntityFramework.xml
+C:\Users\gidin\OneDrive\Рабочий стол\SaleApplication\SaleApplication\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\gidin\OneDrive\Рабочий стол\SaleApplication\SaleApplication\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\gidin\OneDrive\Рабочий стол\SaleApplication\SaleApplication\obj\Debug\App.baml
+C:\Users\gidin\OneDrive\Рабочий стол\SaleApplication\SaleApplication\obj\Debug\EditOrAddProduct.baml
+C:\Users\gidin\OneDrive\Рабочий стол\SaleApplication\SaleApplication\obj\Debug\MainWindow.baml
+C:\Users\gidin\OneDrive\Рабочий стол\SaleApplication\SaleApplication\obj\Debug\SaleApplication.g.resources
+C:\Users\gidin\OneDrive\Рабочий стол\SaleApplication\SaleApplication\obj\Debug\SaleApplication.Properties.Resources.resources
+C:\Users\gidin\OneDrive\Рабочий стол\SaleApplication\SaleApplication\obj\Debug\SaleApplication.csproj.GenerateResource.cache
+C:\Users\gidin\OneDrive\Рабочий стол\SaleApplication\SaleApplication\obj\Debug\SaleApplication.csproj.CoreCompileInputs.cache
+C:\Users\gidin\OneDrive\Рабочий стол\SaleApplication\SaleApplication\obj\Debug\SaleApplication.csproj.CopyComplete

@@ -17,12 +17,14 @@
     <Property Name="Name" Type="nvarchar" MaxLength="500" />
     <Property Name="Id_Author" Type="int" />
     <Property Name="Description" Type="nvarchar" MaxLength="500" />
-    <Property Name="ContentText" Type="varbinary(max)" />
+    <Property Name="ContentText" Type="image" />
     <Property Name="Year" Type="int" />
     <Property Name="Cover" Type="image" />
     <Property Name="Cost" Type="real" />
     <Property Name="Discount" Type="real" />
     <Property Name="Id_Genre" Type="int" />
+    <Property Name="Dateadd" Type="date" />
+    <Property Name="TotalCost" Type="real" StoreGeneratedPattern="Computed" />
   </EntityType>
   <EntityType Name="Genre">
     <Key>

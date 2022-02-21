@@ -1,4 +1,4 @@
-﻿<Page x:Class="BuckApp.Pages.StoreBook"
+﻿<Page x:Class="BuckApp.Pages.MyBookStorage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -7,7 +7,8 @@
       mc:Ignorable="d" 
       Height="800"
       Width="1500"
-      Title="StoreBook">
+      Title="MyBookStorage">
+
     <Page.Resources>
         <SolidColorBrush x:Key="TextBox.Static.Border" Color="#FFABAdB3"/>
         <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FF7EB4EA"/>
@@ -382,7 +383,7 @@
                      Margin="30"
                      Text="{Binding FilterText, UpdateSourceTrigger=PropertyChanged}"
                      x:Name="filterBox">
-                    
+
             </TextBox>
         </DockPanel>
 
@@ -420,22 +421,18 @@
 
                                 <Border Height="500" Width="400" Background="#D4D5C6" CornerRadius="30" Margin="30">
                                     <StackPanel>
-                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                            <TextBlock x:Name="CostText" Text="{Binding Id}" Initialized="CostText_Initialized" FontSize="26" ></TextBlock>
-                                            <TextBlock x:Name="DiscText" Text="{Binding Id}" Initialized="DiscText_Initialized" FontSize="26" ></TextBlock>
-                                            <Button x:Name="buyBook" Content="{Binding Id}" Initialized="buyBook_Initialized" Margin="30 0 0 0" Click="buyBook_Click" ></Button>
-                                        </StackPanel>
-                                        <Image Source="{Binding Cover}"
+
+                                        <Image Source="{Binding Book.Cover}"
                                                Height="400" Width="332"
                                                Stretch="Fill"/>
-                                        <TextBlock Text="{Binding Name}"
+                                        <TextBlock Text="{Binding Book.Name}"
                                                    Style="{StaticResource TextBlockStandart}"
                                                    FontSize="16"
                                                    Opacity="0.7"
                                                    HorizontalAlignment="Center"
                                                    Margin="0,10,0,5"/>
                                         <Border Width="285" Background="Black" HorizontalAlignment="Center" Height="1" Opacity="0.3"/>
-                                        <TextBlock Text="{Binding Author.LName}"
+                                        <TextBlock Text="{Binding Book.Author.LName}"
                                                    Style="{StaticResource ResourceKey=TextBlockStandart}"
                                                    FontSize="16"
                                                    Opacity="0.7"
@@ -447,29 +444,29 @@
                                         <DropShadowEffect BlurRadius="30" Opacity="0.1" Color="Black" ShadowDepth="0"/>
                                     </Border.Effect>
                                 </Border>
-                                
+
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
 
                 </Grid>
-                
+
             </TabItem>
             <TabItem Style="{DynamicResource TabItemStyle1}" Header="Новинки"
                      Height="58"
                      Background="Transparent">
                 <Grid Background="Red"/>
             </TabItem>
-            <TabItem Style="{DynamicResource TabItemStyle1}" Header="Популярное"
+            <TabItem x:Name="statistic" Style="{DynamicResource TabItemStyle1}" Header="Популярное"
                      Height="58"
-                     Background="Transparent">
+                     Background="Transparent" MouseDoubleClick="statistic_MouseDoubleClick">
                 <Grid Background="Blue"
                       />
             </TabItem>
-            <TabItem x:Name="myBookTab"  Style="{DynamicResource TabItemStyle1}" Header="Мои книги"
+            <TabItem Style="{DynamicResource TabItemStyle1}" Header="Что почитать?"
                      Height="58"
                      Background="Transparent"
-                     Width="250" MouseDoubleClick="myBookTab_MouseDoubleClick">
+                     Width="250">
                 <Grid Background="Yellow"/>
             </TabItem>
             <TabItem x:Name="addbook" Style="{DynamicResource TabItemStyle1}" Header="Добавить"
@@ -480,4 +477,5 @@
             </TabItem>
         </TabControl>
     </Grid>
+
 </Page>

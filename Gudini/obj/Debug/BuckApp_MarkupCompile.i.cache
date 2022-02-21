@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\App.xaml
-7-792732552
+101000051746
 4687017112
-291339643761
+322113253275
 1291071959768
-MainWindow.xaml;Pages\LesenPage.xaml;Pages\Login.xaml;Pages\MoreDetails_StoreBook.xaml;Pages\Registration.xaml;Pages\StartUp.xaml;Pages\StoreBook.xaml;
+MainWindow.xaml;Pages\AddBook.xaml;Pages\LesenPage.xaml;Pages\Login.xaml;Pages\MoreDetails_StoreBook.xaml;Pages\MyBookStorage.xaml;Pages\Registration.xaml;Pages\StartUp.xaml;Pages\Statistic.xaml;Pages\StoreBook.xaml;
 
 True
 

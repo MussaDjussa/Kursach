@@ -31,6 +31,8 @@ namespace BuckApp.Model
         public Nullable<float> Cost { get; set; }
         public Nullable<float> Discount { get; set; }
         public Nullable<int> Id_Genre { get; set; }
+        public Nullable<System.DateTime> Dateadd { get; set; }
+        public Nullable<float> TotalCost { get; set; }
     
         public virtual Author Author { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

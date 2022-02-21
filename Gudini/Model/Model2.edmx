@@ -22,12 +22,14 @@
           <Property Name="Name" Type="nvarchar" MaxLength="500" />
           <Property Name="Id_Author" Type="int" />
           <Property Name="Description" Type="nvarchar" MaxLength="500" />
-          <Property Name="ContentText" Type="varbinary(max)" />
+          <Property Name="ContentText" Type="image" />
           <Property Name="Year" Type="int" />
           <Property Name="Cover" Type="image" />
           <Property Name="Cost" Type="real" />
           <Property Name="Discount" Type="real" />
           <Property Name="Id_Genre" Type="int" />
+          <Property Name="Dateadd" Type="date" />
+          <Property Name="TotalCost" Type="real" StoreGeneratedPattern="Computed" />
         </EntityType>
         <EntityType Name="Genre">
           <Key>
@@ -230,6 +232,8 @@
           <Property Name="Discount" Type="Single" />
           <Property Name="Id_Genre" Type="Int32" />
           <NavigationProperty Name="Genre" Relationship="BuckDBModel1.FK_Book_Genre" FromRole="Book" ToRole="Genre" />
+          <Property Name="Dateadd" Type="DateTime" Precision="0" />
+          <Property Name="TotalCost" Type="Single" annotation:StoreGeneratedPattern="Computed" />
         </EntityType>
         <EntityType Name="Genre">
           <Key>
@@ -462,6 +466,8 @@
           <EntitySetMapping Name="Book">
             <EntityTypeMapping TypeName="BuckDBModel1.Book">
               <MappingFragment StoreEntitySet="Book">
+                <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
+                <ScalarProperty Name="Dateadd" ColumnName="Dateadd" />
                 <ScalarProperty Name="Id_Genre" ColumnName="Id_Genre" />
                 <ScalarProperty Name="Discount" ColumnName="Discount" />
                 <ScalarProperty Name="Cost" ColumnName="Cost" />

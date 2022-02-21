@@ -93,11 +93,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model2.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\AddBook.xaml.cs">
+      <DependentUpon>AddBook.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\LesenPage.xaml.cs">
       <DependentUpon>LesenPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\MoreDetails_StoreBook.xaml.cs">
       <DependentUpon>MoreDetails_StoreBook.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MyBookStorage.xaml.cs">
+      <DependentUpon>MyBookStorage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Statistic.xaml.cs">
+      <DependentUpon>Statistic.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\StoreBook_ViewModel.cs" />
     <Page Include="MainWindow.xaml">
@@ -112,6 +121,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\AddBook.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\LesenPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -124,11 +137,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\MyBookStorage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Registration.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\StartUp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Statistic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -244,6 +265,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Resource Include="Images\DADPic.png" />
     <Content Include="Model\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>

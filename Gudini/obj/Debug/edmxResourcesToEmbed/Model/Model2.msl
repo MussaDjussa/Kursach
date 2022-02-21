@@ -14,6 +14,8 @@
     <EntitySetMapping Name="Book">
       <EntityTypeMapping TypeName="BuckDBModel1.Book">
         <MappingFragment StoreEntitySet="Book">
+          <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
+          <ScalarProperty Name="Dateadd" ColumnName="Dateadd" />
           <ScalarProperty Name="Id_Genre" ColumnName="Id_Genre" />
           <ScalarProperty Name="Discount" ColumnName="Discount" />
           <ScalarProperty Name="Cost" ColumnName="Cost" />

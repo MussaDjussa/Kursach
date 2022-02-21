@@ -47,7 +47,6 @@ namespace BuckApp.ViewModel
             Pages.Login.user.Id = 2;
             foreach (var item in MainWindow.model.User_Book.ToList().Where(c=> c.User.Id == Pages.Login.user.Id))
             {
-               
                 UserBook.Add(item);
             }
 
@@ -58,19 +57,20 @@ namespace BuckApp.ViewModel
         private bool Filter(object obj)
         {
             User_Book User_Book = (User_Book)obj;
-            if (string.IsNullOrWhiteSpace(FilterText))
+           
+            if (string.IsNullOrWhiteSpace(FilterText) && User_Book.Id_User == Pages.Login.user.Id)
             {
                 return true;
             }
-            else if(User_Book.Book.Name.Contains(FilterText))
+            else if(User_Book.Book.Name.Contains(FilterText) && User_Book.Id_User == Pages.Login.user.Id)
             {
                 return true;
             }
-            else if(User_Book.Book.Author.LName.Contains(FilterText))
+            else if(User_Book.Book.Author.LName.Contains(FilterText) && User_Book.Id_User == Pages.Login.user.Id)
             {
                 return true;
             }
-            else if (User_Book.Book.Genre.Name.Contains(FilterText)) 
+            else if (User_Book.Book.Genre.Name.Contains(FilterText) && User_Book.Id_User == Pages.Login.user.Id) 
                 
             {
                 return true;

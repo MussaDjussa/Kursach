@@ -73,3 +73,9 @@ C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gu
 C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\bin\Debug\Aspose.Words.dll
 C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\bin\Debug\Aspose.Words.Pdf2Word.dll
 C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\bin\Debug\Aspose.Words.xml
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\obj\Debug\Pages\AddBook.g.cs
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\obj\Debug\Pages\AddBook.baml
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\obj\Debug\Pages\MyBookStorage.g.cs
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\obj\Debug\Pages\MyBookStorage.baml
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\obj\Debug\Pages\Statistic.g.cs
+C:\Users\gidin\OneDrive\Рабочий стол\Новая папка\Kursach\Gudini\obj\Debug\Pages\Statistic.baml

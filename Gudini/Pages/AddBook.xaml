@@ -1,0 +1,78 @@
+﻿<Window x:Class="BuckApp.Pages.AddBook"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BuckApp.Pages"
+        mc:Ignorable="d"
+        Title="AddBook" Height="1000" Width="1800">
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="35"></Setter>
+            <Setter Property="Width" Value="250"></Setter>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="35"></Setter>
+        </Style>
+    </Window.Resources>
+    <StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Orientation="Vertical" >
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Название" ></Label>
+                <TextBox x:Name="NameText" Width="500"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
+                <Label Content="Автор"></Label>
+                <ComboBox x:Name="AuthorBox" IsEditable="False" Width="350" FontSize="25">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding FName}"  Margin="5 0 0 0"></TextBlock>
+                                    <TextBlock Text="{Binding LName}"  Margin="5 0 0 0"></TextBlock>
+                                    <TextBlock Text="{Binding MName}"  Margin="5 0 0 0"></TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
+                <Label Content="Жанр"></Label>
+                <ComboBox x:Name="GenreBox" Width="350" FontSize="25" DisplayMemberPath="Name"  SelectedItem="{Binding Genre}" >
+                       
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
+                <Label Content="Описание"></Label>
+                <TextBox x:Name="DescriptText" TextWrapping="Wrap" Width="500" Height="200" FontSize="30"></TextBox>
+            </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Год издания" ></Label>
+                    <TextBox x:Name="YearText" Width="150" TextChanged="YearText_TextChanged" ></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Цена" ></Label>
+                    <TextBox x:Name="CostText" Width="150" TextChanged="CostText_TextChanged" ></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Скидка в %" ></Label>
+                    <TextBox x:Name="DiscText" Width="150" TextChanged="DiscText_TextChanged" ></TextBox>
+                </StackPanel>
+            </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
+            <Label Content="Обложка"></Label>
+            <Image x:Name="CoverImage" Width="400" Height="500"></Image>
+            <StackPanel Orientation="Vertical" Margin="20 0 0 0">
+                <Button Content="Добавить обложку" FontSize="25" x:Name="addCover" Width="250" Height="50" Click="addCover_Click" ></Button>
+                <Button Content="Удалить обложку" FontSize="25" x:Name="removeCover" Width="250" Height="50" Margin="0 20 0 0" Click="removeCover_Click"></Button>
+                <Label Content="Файл: " Margin="0 50 0 0"></Label>
+                <Button x:Name="fileAdd" Margin="0 20 0 0" Width="250" Height="50" Content="Выбрать файл" FontSize="30" Click="fileAdd_Click" ></Button>
+                <Button x:Name="removefile" Content="Удалить файл" Width="250" Height="50" FontSize="30" Click="removefile_Click" ></Button>
+                <Label x:Name="casefiletext" Content="Файл не выбран!" FontSize="30"></Label>
+            </StackPanel>
+        </StackPanel>
+        
+    </StackPanel>
+    <Button x:Name="addBook" Content="Добавить книгу" HorizontalAlignment="Center" Width="250" Height="50" FontSize="25" Click="addBook_Click"></Button>
+    </StackPanel>
+</Window>

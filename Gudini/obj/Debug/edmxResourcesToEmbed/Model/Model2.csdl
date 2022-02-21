@@ -28,6 +28,8 @@
     <Property Name="Discount" Type="Single" />
     <Property Name="Id_Genre" Type="Int32" />
     <NavigationProperty Name="Genre" Relationship="BuckDBModel1.FK_Book_Genre" FromRole="Book" ToRole="Genre" />
+    <Property Name="Dateadd" Type="DateTime" Precision="0" />
+    <Property Name="TotalCost" Type="Single" annotation:StoreGeneratedPattern="Computed" />
   </EntityType>
   <EntityType Name="Genre">
     <Key>

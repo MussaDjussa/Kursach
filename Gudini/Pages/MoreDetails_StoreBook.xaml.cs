@@ -29,11 +29,21 @@ namespace BuckApp.Pages
         public static Book newbook;
         public static String textBook;
         public MoreDetails_StoreBook(Book book)
-
         {
             InitializeComponent();
+            if (Login.user.Id_Role == 2)
+            { 
+                LesenButton.Visibility = Visibility.Collapsed;
+            }
             newbook = book;
-            DataContext = newbook;
+            try
+            {
+                DataContext = newbook;
+            }
+            catch
+            {
+                System.Windows.MessageBox.Show("Не удалось подгрузить книгу");
+            }
         }
 
 
@@ -66,14 +76,13 @@ namespace BuckApp.Pages
 
         private void Add_Click_1(object sender, RoutedEventArgs e)
         {
-            String str;
+            
             dlg.Title = "text selection";
             dlg.Filter = "TXT(.txt)|*.txt|DOCX(.docx)|*.docx";
             if (dlg.ShowDialog() == true)
             {
                 if (dlg.FileName.EndsWith(".txt"))
                 {
-
                     byte[] bytes = System.IO.File.ReadAllBytes(dlg.FileName);
                     newbook.ContentText = bytes;
                 }
@@ -93,10 +102,9 @@ namespace BuckApp.Pages
                         byte[] docBytes = Encoding.Unicode.GetBytes(textBook);
                         newbook.ContentText = docBytes;
                     }
-
                 }
-                
             }
+            MainWindow.model.SaveChanges();
         }
     }
 }

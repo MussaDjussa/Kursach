@@ -4,7 +4,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="FName" Type="nvarchar" MaxLength="50" />
     <Property Name="LName" Type="nvarchar" MaxLength="50" />
     <Property Name="MName" Type="nvarchar" MaxLength="50" />
@@ -13,7 +13,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="500" />
     <Property Name="Id_Author" Type="int" />
     <Property Name="Description" Type="nvarchar" MaxLength="500" />
@@ -30,7 +30,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="150" />
   </EntityType>
   <EntityType Name="Genre_Book">
@@ -52,7 +52,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="sysdiagrams">
@@ -69,7 +69,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="FName" Type="nvarchar" MaxLength="50" />
     <Property Name="LName" Type="nvarchar" MaxLength="50" />
     <Property Name="Login" Type="nvarchar" MaxLength="50" />
@@ -81,7 +81,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Id_User" Type="int" />
     <Property Name="Id_Book" Type="int" />
     <Property Name="Id_Status" Type="int" />

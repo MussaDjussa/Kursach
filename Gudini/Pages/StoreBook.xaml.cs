@@ -48,6 +48,7 @@ namespace BuckApp.Pages
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+
             NavigationService.Navigate(new MoreDetails_StoreBook(ListBook.SelectedItem as Book));
 
         }

@@ -28,14 +28,14 @@ namespace BuckApp.Pages
        
         public static Book newbook;
         public static String textBook;
-        public MoreDetails_StoreBook(Book book)
+        public MoreDetails_StoreBook(User_Book book)
         {
             InitializeComponent();
             if (Login.user.Id_Role == 2)
             { 
-                LesenButton.Visibility = Visibility.Collapsed;
+                Add.Visibility = Visibility.Collapsed;
             }
-            newbook = book;
+            newbook = book.Book;
             try
             {
                 DataContext = newbook;
@@ -45,9 +45,15 @@ namespace BuckApp.Pages
                 System.Windows.MessageBox.Show("Не удалось подгрузить книгу");
             }
         }
+        public MoreDetails_StoreBook(Book book)
+        {
+            InitializeComponent();
+            newbook = book;
+            DataContext = newbook;
+        }
 
 
-       
+
         /// <summary>
         /// закрытие приложения
         /// </summary>

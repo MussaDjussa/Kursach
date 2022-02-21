@@ -406,7 +406,7 @@
                                VerticalAlignment="Bottom"
                                FontSize="40"/>
 
-                    <ListView x:Name="ListBook" Grid.Row="1" ItemsSource="{Binding Book}"
+                    <ListView x:Name="ListBook" Grid.Row="1" ItemsSource="{Binding User_Book}"
                               ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                               BorderThickness="0"
                               SelectedItem="{Binding SelectedItem}" 

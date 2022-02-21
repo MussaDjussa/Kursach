@@ -23,7 +23,7 @@
                        Margin="40,0,0,24"
                        FontSize="24"
                        FontFamily="PT Serif"/>
-            <FlowDocumentReader Initialized="FlowDocumentReader_Initialized" Width="700" Height="500"   >
+            <FlowDocumentReader x:Name="flow" Width="700" Height="500"   >
                 
             </FlowDocumentReader>
             <Button Style="{StaticResource ButtonStyle_Standart}"

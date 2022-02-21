@@ -25,35 +25,33 @@ namespace BuckApp.Pages
         static System.Windows.Documents.Paragraph paragraph = new System.Windows.Documents.Paragraph();
         public LesenPage(Book book)
         {
-            try
-            {
-                newBook = book;
-                InitializeComponent();
-            }
-            catch
+            InitializeComponent();
+            newBook = book;
+            if (newBook.ContentText == null)
             {
                 MessageBox.Show("не удалось погрузить книгу");
+                
             }
+            else
+            {
+                LoadDoc();
+            }
+
         }
 
-        private void FlowDocumentReader_Initialized(object sender, EventArgs e)
-        {
-            try
-            {
-                FlowDocumentReader flowDocument = sender as FlowDocumentReader;
+        private void LoadDoc()
+        { 
                 paragraph.Inlines.Clear();
                 String s = Encoding.Unicode.GetString(newBook.ContentText);
                 paragraph.Inlines.Add(s);
                 FlowDocument document = new FlowDocument(paragraph);
                 document.ColumnWidth = 2000;
                 document.Background = Brushes.White;
-                flowDocument.Document = document;
-            }
-            catch
-            {
-                MessageBox.Show("Содержимое книги пусто");
-            }
+                flow.Document = document;
+            
         }
+
+      
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\amush\Desktop\Gudini\Gudini\App.xaml
-6-1105507062
+14-1314845343
 2739969757
-232012655410
-201386641823
-MainWindow.xaml;Pages\Login.xaml;Pages\MoreDetails_StoreBook.xaml;Pages\Registration.xaml;Pages\StartUp.xaml;Pages\StoreBook.xaml;
+33-671721513
+23327416591
+MainWindow.xaml;Pages\Login.xaml;Pages\LoginAdmin.xaml;Pages\MoreDetails_StoreBook.xaml;Pages\MoreDetails_StoreBook_User.xaml;Pages\Read.xaml;Pages\Registration.xaml;Pages\StartUp.xaml;Pages\StoreBook.xaml;Windows\AddAuthor.xaml;Windows\AddGenre.xaml;Windows\AddWindow.xaml;Windows\EditWindow.xaml;Windows\Window1.xaml;
 
 False
 

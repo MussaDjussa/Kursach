@@ -1,6 +1,7 @@
 ﻿using BuckApp.Model;
 using BuckApp.Pages;
 using BuckApp.ViewModel;
+using BuckApp.Windows;
 using System.Windows;
 
 namespace BuckApp
@@ -34,8 +35,29 @@ namespace BuckApp
         public static StoreBook book = new StoreBook();
 
         /// <summary>
+        /// создание окна с контентом книги
+        /// </summary>
+        public static Window1 window1 = new Window1();
+
+        /// <summary>
+        /// создание окна Добавление автора
+        /// </summary>
+        public static AddAuthor addAuthor = new AddAuthor();
+
+        /// <summary>
+        /// создание окна Добавление книги
+        /// </summary>
+        public static AddWindow addWindow = new AddWindow();
+
+        /// <summary>
+        /// создание окна Добавление Жанра
+        /// </summary>
+        public static AddGenre addGenre = new AddGenre();
+
+        /// <summary>
         /// Инициализация навигацинного стека для страниц
         /// </summary>
+        /// 
         public MainWindow()
         {
             InitializeComponent();

@@ -4,7 +4,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="FName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="LName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="MName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -14,7 +14,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="Id_Author" Type="Int32" />
     <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
@@ -22,35 +22,46 @@
     <Property Name="Year" Type="Int32" />
     <Property Name="Cover" Type="Binary" MaxLength="Max" FixedLength="false" />
     <NavigationProperty Name="Author" Relationship="Self.FK_Book_Author" FromRole="Book" ToRole="Author" />
-    <NavigationProperty Name="Genre_Book" Relationship="Self.FK_Genre_Book_Book" FromRole="Book" ToRole="Genre_Book" />
-    <NavigationProperty Name="User_Book" Relationship="Self.FK_User_Book_Book" FromRole="Book" ToRole="User_Book" />
+    <NavigationProperty Name="Bookmark" Relationship="Self.FK_Bookmark_Book" FromRole="Book" ToRole="Bookmark" />
+    <NavigationProperty Name="Genre_User" Relationship="Self.FK_Genre_User_Book" FromRole="Book" ToRole="Genre_User" />
+    <NavigationProperty Name="User_Book" Relationship="Self.FK_User_Book_Book1" FromRole="Book" ToRole="User_Book" />
     <Property Name="Id_Genre" Type="Int32" />
     <NavigationProperty Name="Genre" Relationship="BuckDBModel.FK_Book_Genre" FromRole="Book" ToRole="Genre" />
+  </EntityType>
+  <EntityType Name="Bookmark">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Book" Type="Int32" />
+    <Property Name="Id_User" Type="Int32" />
+    <NavigationProperty Name="Book" Relationship="Self.FK_Bookmark_Book" FromRole="Bookmark" ToRole="Book" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Bookmark_User" FromRole="Bookmark" ToRole="User" />
   </EntityType>
   <EntityType Name="Genre">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Genre_Book" Relationship="Self.FK_Genre_Book_Genre" FromRole="Genre" ToRole="Genre_Book" />
+    <NavigationProperty Name="Genre_User" Relationship="Self.FK_Genre_User_Genre" FromRole="Genre" ToRole="Genre_User" />
     <NavigationProperty Name="Book" Relationship="BuckDBModel.FK_Book_Genre" FromRole="Genre" ToRole="Book" />
   </EntityType>
-  <EntityType Name="Genre_Book">
+  <EntityType Name="Genre_User">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
-    <Property Name="Id_Book" Type="Int32" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Id_Genre" Type="Int32" />
-    <NavigationProperty Name="Book" Relationship="Self.FK_Genre_Book_Book" FromRole="Genre_Book" ToRole="Book" />
-    <NavigationProperty Name="Genre" Relationship="Self.FK_Genre_Book_Genre" FromRole="Genre_Book" ToRole="Genre" />
+    <Property Name="Id_Book" Type="Int32" />
+    <NavigationProperty Name="Book" Relationship="Self.FK_Genre_User_Book" FromRole="Genre_User" ToRole="Book" />
+    <NavigationProperty Name="Genre" Relationship="Self.FK_Genre_User_Genre" FromRole="Genre_User" ToRole="Genre" />
   </EntityType>
   <EntityType Name="Role">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="User" Relationship="Self.FK_User_Role" FromRole="Role" ToRole="User" />
   </EntityType>
@@ -58,9 +69,9 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="User_Book" Relationship="Self.FK_User_Book_Status" FromRole="Status" ToRole="User_Book" />
+    <NavigationProperty Name="User_Book" Relationship="Self.FK_User_Book_Status1" FromRole="Status" ToRole="User_Book" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -76,12 +87,13 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="FName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="LName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Id_Role" Type="Int32" />
+    <NavigationProperty Name="Bookmark" Relationship="Self.FK_Bookmark_User" FromRole="User" ToRole="Bookmark" />
     <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
     <NavigationProperty Name="User_Book" Relationship="Self.FK_User_Book_User" FromRole="User" ToRole="User_Book" />
   </EntityType>
@@ -89,13 +101,13 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Id_User" Type="Int32" />
     <Property Name="Id_Book" Type="Int32" />
     <Property Name="Id_Status" Type="Int32" />
     <Property Name="Rating" Type="Single" />
-    <NavigationProperty Name="Book" Relationship="Self.FK_User_Book_Book" FromRole="User_Book" ToRole="Book" />
-    <NavigationProperty Name="Status" Relationship="Self.FK_User_Book_Status" FromRole="User_Book" ToRole="Status" />
+    <NavigationProperty Name="Book" Relationship="Self.FK_User_Book_Book1" FromRole="User_Book" ToRole="Book" />
+    <NavigationProperty Name="Status" Relationship="Self.FK_User_Book_Status1" FromRole="User_Book" ToRole="Status" />
     <NavigationProperty Name="User" Relationship="Self.FK_User_Book_User" FromRole="User_Book" ToRole="User" />
   </EntityType>
   <Association Name="FK_Book_Author">
@@ -110,19 +122,31 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Genre_Book_Book">
+  <Association Name="FK_Bookmark_Book">
     <End Role="Book" Type="Self.Book" Multiplicity="0..1" />
-    <End Role="Genre_Book" Type="Self.Genre_Book" Multiplicity="*" />
+    <End Role="Bookmark" Type="Self.Bookmark" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Book">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Genre_Book">
+      <Dependent Role="Bookmark">
         <PropertyRef Name="Id_Book" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_User_Book_Book">
+  <Association Name="FK_Genre_User_Book">
+    <End Role="Book" Type="Self.Book" Multiplicity="0..1" />
+    <End Role="Genre_User" Type="Self.Genre_User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Book">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Genre_User">
+        <PropertyRef Name="Id_Book" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Book_Book1">
     <End Role="Book" Type="Self.Book" Multiplicity="0..1" />
     <End Role="User_Book" Type="Self.User_Book" Multiplicity="*" />
     <ReferentialConstraint>
@@ -134,15 +158,27 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Genre_Book_Genre">
+  <Association Name="FK_Bookmark_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Bookmark" Type="Self.Bookmark" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Bookmark">
+        <PropertyRef Name="Id_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Genre_User_Genre">
     <End Role="Genre" Type="Self.Genre" Multiplicity="0..1" />
-    <End Role="Genre_Book" Type="Self.Genre_Book" Multiplicity="*" />
+    <End Role="Genre_User" Type="Self.Genre_User" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Genre">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Genre_Book">
-        <PropertyRef Name="Id_Genre" />
+      <Dependent Role="Genre_User">
+        <PropertyRef Name="Id_Book" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -158,7 +194,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_User_Book_Status">
+  <Association Name="FK_User_Book_Status1">
     <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
     <End Role="User_Book" Type="Self.User_Book" Multiplicity="*" />
     <ReferentialConstraint>
@@ -185,8 +221,9 @@
   <EntityContainer Name="BuckDBEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Author" EntityType="Self.Author" />
     <EntitySet Name="Book" EntityType="Self.Book" />
+    <EntitySet Name="Bookmark" EntityType="Self.Bookmark" />
     <EntitySet Name="Genre" EntityType="Self.Genre" />
-    <EntitySet Name="Genre_Book" EntityType="Self.Genre_Book" />
+    <EntitySet Name="Genre_User" EntityType="Self.Genre_User" />
     <EntitySet Name="Role" EntityType="Self.Role" />
     <EntitySet Name="Status" EntityType="Self.Status" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
@@ -196,23 +233,31 @@
       <End Role="Author" EntitySet="Author" />
       <End Role="Book" EntitySet="Book" />
     </AssociationSet>
-    <AssociationSet Name="FK_Genre_Book_Book" Association="Self.FK_Genre_Book_Book">
+    <AssociationSet Name="FK_Bookmark_Book" Association="Self.FK_Bookmark_Book">
       <End Role="Book" EntitySet="Book" />
-      <End Role="Genre_Book" EntitySet="Genre_Book" />
+      <End Role="Bookmark" EntitySet="Bookmark" />
     </AssociationSet>
-    <AssociationSet Name="FK_User_Book_Book" Association="Self.FK_User_Book_Book">
+    <AssociationSet Name="FK_Genre_User_Book" Association="Self.FK_Genre_User_Book">
+      <End Role="Book" EntitySet="Book" />
+      <End Role="Genre_User" EntitySet="Genre_User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Book_Book1" Association="Self.FK_User_Book_Book1">
       <End Role="Book" EntitySet="Book" />
       <End Role="User_Book" EntitySet="User_Book" />
     </AssociationSet>
-    <AssociationSet Name="FK_Genre_Book_Genre" Association="Self.FK_Genre_Book_Genre">
+    <AssociationSet Name="FK_Bookmark_User" Association="Self.FK_Bookmark_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Bookmark" EntitySet="Bookmark" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Genre_User_Genre" Association="Self.FK_Genre_User_Genre">
       <End Role="Genre" EntitySet="Genre" />
-      <End Role="Genre_Book" EntitySet="Genre_Book" />
+      <End Role="Genre_User" EntitySet="Genre_User" />
     </AssociationSet>
     <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
       <End Role="Role" EntitySet="Role" />
       <End Role="User" EntitySet="User" />
     </AssociationSet>
-    <AssociationSet Name="FK_User_Book_Status" Association="Self.FK_User_Book_Status">
+    <AssociationSet Name="FK_User_Book_Status1" Association="Self.FK_User_Book_Status1">
       <End Role="Status" EntitySet="Status" />
       <End Role="User_Book" EntitySet="User_Book" />
     </AssociationSet>

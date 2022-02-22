@@ -25,6 +25,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Bookmark">
+      <EntityTypeMapping TypeName="BuckDBModel.Bookmark">
+        <MappingFragment StoreEntitySet="Bookmark">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Id_Book" ColumnName="Id_Book" />
+          <ScalarProperty Name="Id_User" ColumnName="Id_User" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Genre">
       <EntityTypeMapping TypeName="BuckDBModel.Genre">
         <MappingFragment StoreEntitySet="Genre">
@@ -33,12 +42,12 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Genre_Book">
-      <EntityTypeMapping TypeName="BuckDBModel.Genre_Book">
-        <MappingFragment StoreEntitySet="Genre_Book">
+    <EntitySetMapping Name="Genre_User">
+      <EntityTypeMapping TypeName="BuckDBModel.Genre_User">
+        <MappingFragment StoreEntitySet="Genre_User">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Id_Book" ColumnName="Id_Book" />
           <ScalarProperty Name="Id_Genre" ColumnName="Id_Genre" />
+          <ScalarProperty Name="Id_Book" ColumnName="Id_Book" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

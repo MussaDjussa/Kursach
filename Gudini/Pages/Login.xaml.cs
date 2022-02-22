@@ -4,6 +4,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
 using BuckApp.Model;
+using BuckApp.ViewModel;
+
 namespace BuckApp.Pages
 {
     /// <summary>
@@ -47,9 +49,14 @@ namespace BuckApp.Pages
             }
             else
             {
-                if(UserLogin() != null)
+                if (UserLogin() != null && UserLogin().Role.Id == 2)
                 {
+                    
                     NavigationService.Navigate(MainWindow.book); 
+                }
+                else if (UserLogin() != null && UserLogin().Role.Id == 1)
+                {
+                    NavigationService.Navigate(new LoginAdmin());
                 }
                 else
                 {
@@ -89,11 +96,12 @@ namespace BuckApp.Pages
         /// Поиск пользователя по введеным полям
         /// </summary>
         /// <returns>user</returns>
-        private User UserLogin()
+        public User UserLogin()
         {
             User findUser = MainWindow.model.User.ToList().Find(q=>q.Login == login.Text && q.Password == password.Text);
             return findUser;
         }
-        
+
+        public AdminViewModel adminViewModel = new AdminViewModel();
     }
 }

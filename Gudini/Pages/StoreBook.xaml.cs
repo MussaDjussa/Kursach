@@ -1,4 +1,6 @@
 ﻿using BuckApp.ViewModel;
+using BuckApp.Windows;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace BuckApp.Pages
@@ -7,12 +9,8 @@ namespace BuckApp.Pages
     /// Interaction logic for StoreBook.xaml
     /// </summary>
     public partial class StoreBook : Page
-    {
-
-        /// <summary>
-        /// Создаем ViewModel свойство и инициализируем конструктор
-        /// </summary>
-        public StoreBook_ViewModel ViewModel { get; set; } = new StoreBook_ViewModel();
+    {   
+        public StoreBook_ViewModel ViewModel = new StoreBook_ViewModel();
 
         public StoreBook()
         {
@@ -26,18 +24,9 @@ namespace BuckApp.Pages
 
         }
 
-        //private void TextBox_GotFocus(object sender, System.Windows.RoutedEventArgs e)
-        //{
-        //    filterBox.Text = string.Empty;
-        //}
-
-        //private void TextBox_LostFocus(object sender, System.Windows.RoutedEventArgs e)
-        //{
-        //    if(string.IsNullOrWhiteSpace(filterBox.Text))
-        //    {
-        //        filterBox.Text = "искать автора, жанр, издательство";
-        //    }
-            
-        //}
+        private void ListView_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+            NavigationService.Navigate(new MoreDetails_StoreBook_User());
+        }
     }
 }

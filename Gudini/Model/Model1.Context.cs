@@ -27,8 +27,9 @@ namespace BuckApp.Model
     
         public virtual DbSet<Author> Author { get; set; }
         public virtual DbSet<Book> Book { get; set; }
+        public virtual DbSet<Bookmark> Bookmark { get; set; }
         public virtual DbSet<Genre> Genre { get; set; }
-        public virtual DbSet<Genre_Book> Genre_Book { get; set; }
+        public virtual DbSet<Genre_User> Genre_User { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<Status> Status { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }

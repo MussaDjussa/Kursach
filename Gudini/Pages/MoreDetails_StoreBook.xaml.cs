@@ -1,6 +1,5 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using BuckApp.Model;
 namespace BuckApp.Pages
 {
     /// <summary>
@@ -31,6 +30,15 @@ namespace BuckApp.Pages
         private void Button_Click_1(object sender, System.Windows.RoutedEventArgs e)
         {
             NavigationService.GoBack();
+        }
+        /// <summary>
+        /// когда я создал эту страницу в mainwindow, то привязки не сработали
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Read());
         }
     }
 }

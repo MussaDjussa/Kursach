@@ -21,20 +21,20 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Image Source="{Binding Book.Cover}"/>
+        <Image Source="{Binding Cover}"/>
 
         <StackPanel  Grid.Column="1">
-            <TextBlock Text="{Binding Book.Name}"
+            <TextBlock Text="{Binding Name}"
                    Margin="40,40,0,24"
                    FontFamily="PT Serif"
                    FontWeight="Bold"
                    TextWrapping="Wrap"
                    FontSize="48"/>
-            <TextBlock Text="{Binding Book.Author.LName}"
+            <TextBlock Text="{Binding Author.LName}"
                        Margin="40,0,0,24"
                        FontSize="24"
                        FontFamily="PT Serif"/>
-            <TextBox Text="{Binding Book.Description}"
+            <TextBox Text="{Binding Description}"
                        Margin="40,0,0,24"
                        FontSize="24"
                        FontFamily="PT Serif"
@@ -67,7 +67,7 @@
                     Width="220"
                     Content="Читать"
                     FontSize="24"
-                    Grid.Column="1"/>
+                    Grid.Column="1" Click="Button_Click_2"/>
         </Grid>
 
         <StackPanel Grid.Column="2">

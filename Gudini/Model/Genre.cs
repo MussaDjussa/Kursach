@@ -17,7 +17,7 @@ namespace BuckApp.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Genre()
         {
-            this.Genre_Book = new HashSet<Genre_Book>();
+            this.Genre_User = new HashSet<Genre_User>();
             this.Book = new HashSet<Book>();
         }
     
@@ -25,7 +25,7 @@ namespace BuckApp.Model
         public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Genre_Book> Genre_Book { get; set; }
+        public virtual ICollection<Genre_User> Genre_User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Book> Book { get; set; }
     }

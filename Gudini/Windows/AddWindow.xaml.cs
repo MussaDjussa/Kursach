@@ -41,14 +41,17 @@ namespace BuckApp.Windows
                 case MessageBoxResult.Yes:
                     MessageBox.Show("Авторы не будут доступны из выпадающего списка!!!");
                     MainWindow.addAuthor.author.Visibility = Visibility.Hidden;
+                    MainWindow.addAuthor.fname.Visibility = Visibility.Visible;
+                    MainWindow.addAuthor.lname.Visibility = Visibility.Visible;
+                    MainWindow.addAuthor.mname.Visibility = Visibility.Visible;
                     MainWindow.addAuthor.Show();
                     break;
                 case MessageBoxResult.No:
                     MessageBox.Show("Доступны только авторы из выпадающего списка!!!");
                     MainWindow.addAuthor.author.Visibility = Visibility.Visible;
-                    MainWindow.addAuthor.fname.IsReadOnly = true;
-                    MainWindow.addAuthor.lname.IsReadOnly = true;
-                    MainWindow.addAuthor.mname.IsReadOnly = true;
+                    MainWindow.addAuthor.fname.Visibility = Visibility.Hidden;
+                    MainWindow.addAuthor.lname.Visibility = Visibility.Hidden;
+                    MainWindow.addAuthor.mname.Visibility = Visibility.Hidden;
                     MainWindow.addAuthor.Show();
                     break;
                 case MessageBoxResult.Cancel:
@@ -75,76 +78,161 @@ namespace BuckApp.Windows
                     break;
             }
         }
+
+        public Author AuthorCreating()
+        {
+            Author author = new Author()
+            {
+                FName = MainWindow.authorContainer.FName,
+                LName = MainWindow.authorContainer.LName,
+                MName = MainWindow.authorContainer.MName
+            };
+
+            MainWindow.model.Author.Add(author);
+
+            return author;
+        }
+        public Genre GenreCreating()
+        {
+            Genre genre = new Genre()
+            {
+                Name = MainWindow.genreContainer.NameGenre
+            };
+
+            MainWindow.model.Genre.Add(genre);
+
+            return genre;
+
+        }
+        public void AddGenreAndAuthorWithoutComboBox()
+        {
+            Image image = new Bitmap(dialogCover.FileName);
+            Book book;
+
+            MainWindow.model.Book.Add(book = new Book()
+            {
+                Name = name.Text,
+                Description = description.Text,
+                Id_Genre = GenreCreating().Id,
+                Id_Author = AuthorCreating().Id,
+                ContentText = bytes,
+                Cover = ImageToByte(image),
+                Cost = int.Parse(price.Text),
+                Discount = int.Parse(discount.Text),
+                Year = int.Parse(year.Text)
+            });
+
+            MainWindow.model.SaveChanges();
+
+            // добавляем книги во ViewModel
+            MainWindow.login.adminViewModel.Books.Add(book);
+            MainWindow.book.ViewModel.Book.Add(book);
+            MessageBox.Show("Добавлено!");
+        }
+        public void AddGenreAndAuthorWithComboBox()
+        {
+            Image image = new Bitmap(dialogCover.FileName);
+
+            Book book;
+
+            MainWindow.model.Book.Add(book = new Book()
+            {
+
+                Name = name.Text,
+                Description = description.Text,
+                Id_Genre = MainWindow.genreContainer.SelectedItemGenre.Id,
+                Id_Author = MainWindow.authorContainer.SelectedItemAuthor.Id,
+                ContentText = bytes,
+                Cover = ImageToByte(image),
+                Cost = int.Parse(price.Text),
+                Discount = int.Parse(discount.Text),
+                Year = int.Parse(year.Text)
+            });
+            MainWindow.model.SaveChanges();
+
+            // добавляем книги во ViewModel
+            MainWindow.login.adminViewModel.Books.Add(book);
+            MainWindow.book.ViewModel.Book.Add(book);
+
+            MessageBox.Show("Добавлено!");
+        }
+
+        public void AddAuthorSelectedItem()
+        {
+            Image image = new Bitmap(dialogCover.FileName);
+            Book book;
+
+            MainWindow.model.Book.Add(book = new Book()
+            {
+                Name = name.Text,
+                Description = description.Text,
+                Id_Genre = GenreCreating().Id,
+                Id_Author = MainWindow.authorContainer.SelectedItemAuthor.Id,
+                ContentText = bytes,
+                Cover = ImageToByte(image),
+                Cost = int.Parse(price.Text),
+                Discount = int.Parse(discount.Text),
+                Year = int.Parse(year.Text)
+            });
+
+            MainWindow.model.SaveChanges();
+
+            // добавляем книги во ViewModel
+            MainWindow.login.adminViewModel.Books.Add(book);
+            MainWindow.book.ViewModel.Book.Add(book);
+            MessageBox.Show("Добавлено!");
+        }
+        
+        public void AddGenreSelectedItem()
+        {
+            Image image = new Bitmap(dialogCover.FileName);
+            Book book;
+
+            MainWindow.model.Book.Add(book = new Book()
+            {
+                Name = name.Text,
+                Description = description.Text,
+                Id_Genre = MainWindow.genreContainer.SelectedItemGenre.Id,
+                Id_Author = AuthorCreating().Id,
+                ContentText = bytes,
+                Cover = ImageToByte(image),
+                Cost = int.Parse(price.Text),
+                Discount = int.Parse(discount.Text),
+                Year = int.Parse(year.Text)
+            });
+
+            MainWindow.model.SaveChanges();
+
+            // добавляем книги во ViewModel
+            MainWindow.login.adminViewModel.Books.Add(book);
+            MainWindow.book.ViewModel.Book.Add(book);
+            MessageBox.Show("Добавлено!");
+        }
+
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            try {
-                Image image = new Bitmap(dialogCover.FileName); 
-
-            if (VerifyEmptyFields() == false && MainWindow.authorContainer.SelectedItemAuthor != null && MainWindow.genreContainer.SelectedItemGenre != null)
+            try
             {
-                Book book;
-
-                MainWindow.model.Book.Add(book = new Book()
+                if (MainWindow.authorContainer.EmptyFields() == true && MainWindow.authorContainer.SelectedItemAuthor != null
+                    && MainWindow.genreContainer.EmptyFields() == true && MainWindow.genreContainer.SelectedItemGenre != null)
                 {
+                    AddGenreAndAuthorWithComboBox();
+                }
 
-                    Name = name.Text,
-                    Description = description.Text,
-                    Id_Genre = MainWindow.genreContainer.SelectedItemGenre.Id,
-                    Id_Author = MainWindow.authorContainer.SelectedItemAuthor.Id,
-                    ContentText = bytes,
-                    Cover = ImageToByte(image),
-                    Cost = int.Parse(price.Text),
-                    Discount = int.Parse(discount.Text),
-                    Year = int.Parse(year.Text)
-                });
-                MainWindow.model.SaveChanges();
-
-                // добавляем книги во ViewModel
-                MainWindow.login.adminViewModel.Books.Add(book);
-                MainWindow.book.ViewModel.Book.Add(book);
+                if (MainWindow.authorContainer.EmptyFields() == false && MainWindow.genreContainer.EmptyFields() == false)
+                {
+                    AddGenreAndAuthorWithoutComboBox();
+                }
+                if(MainWindow.authorContainer.EmptyFields() == false && MainWindow.genreContainer.SelectedItemGenre != null)
+                {
+                    AddGenreSelectedItem();
+                }
+                if(MainWindow.authorContainer.SelectedItemAuthor != null && !string.IsNullOrWhiteSpace(MainWindow.genreContainer.NameGenre))
+                {
+                    AddAuthorSelectedItem();
+                }
             }
-            else if (VerifyEmptyFields() == false && MainWindow.authorContainer.EmptyFields() == false && MainWindow.genreContainer.EmptyFields() == false)
-            {
-                MessageBox.Show($"{MainWindow.authorContainer.FName} {MainWindow.authorContainer.LName} {MainWindow.authorContainer.MName} \n{MainWindow.genreContainer.NameGenre}");
 
-                Book book;
-
-                Author author = new Author()
-                {
-                    FName = MainWindow.authorContainer.FName,
-                    LName = MainWindow.authorContainer.LName,
-                    MName = MainWindow.authorContainer.MName
-                };
-
-                MainWindow.model.Author.Add(author);
-
-                Genre genre = new Genre()
-                {
-                    Name = MainWindow.genreContainer.NameGenre
-                };
-
-                MainWindow.model.Genre.Add(genre);
-
-                MainWindow.model.Book.Add(book = new Book()
-                {
-
-                    Name = name.Text,
-                    Description = description.Text,
-                    Id_Genre = genre.Id,
-                    Id_Author = author.Id,
-                    ContentText = bytes,
-                    Cover = ImageToByte(image),
-                    Cost = int.Parse(price.Text),
-                    Discount = int.Parse(discount.Text),
-                    Year = int.Parse(year.Text)
-                });
-
-                MainWindow.model.SaveChanges();
-
-                // добавляем книги во ViewModel
-                MainWindow.login.adminViewModel.Books.Add(book);
-                MainWindow.book.ViewModel.Book.Add(book);
-            }}
             catch (ArgumentException) { MessageBox.Show("Не выбрана обложка(картинка)!"); }
         }
 
@@ -215,9 +303,9 @@ namespace BuckApp.Windows
 
         private void name_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
-            if (Regex.IsMatch(name.Text, "[^A-Z-a-z]"))
+            if (Regex.IsMatch(name.Text, "[^А-Я-а-я]"))
             {
-                MessageBox.Show("Можно вводить только латинские заглавные или строчные символы!!!", "Ошибка!!!");
+                MessageBox.Show("Можно вводить только строковые заглавные или строчные символы!!!", "Ошибка!!!");
                 name.Text = name.Text.Remove(name.Text.Length - 1);
                 name.SelectionStart = name.Text.Length;
             }

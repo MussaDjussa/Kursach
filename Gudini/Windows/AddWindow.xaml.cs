@@ -80,7 +80,7 @@ namespace BuckApp.Windows
             try {
                 Image image = new Bitmap(dialogCover.FileName); 
 
-            if (VerifyEmptyFields() == true && MainWindow.authorContainer.SelectedItemAuthor != null && MainWindow.genreContainer.SelectedItemGenre != null)
+            if (VerifyEmptyFields() == false && MainWindow.authorContainer.SelectedItemAuthor != null && MainWindow.genreContainer.SelectedItemGenre != null)
             {
                 Book book;
 

@@ -25,6 +25,7 @@ namespace BuckApp.Windows
         {
             InitializeComponent();
             oldgenre.ItemsSource = MainWindow.model.Genre.ToList();
+            DataContext = MainWindow.login.adminViewModel;
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {

@@ -19,7 +19,7 @@
             <TextBlock Style="{StaticResource TextBlockStandart}"
                        Text="Выбрать жанры"
                        Margin="0,20,0,0"/>
-            <ComboBox x:Name="oldgenre" DisplayMemberPath="Name">
+            <ComboBox x:Name="oldgenre" DisplayMemberPath="Name" SelectedItem="{Binding SelectedItem}">
 
             </ComboBox>
             <Button Style="{StaticResource ButtonStyle_Standart}"

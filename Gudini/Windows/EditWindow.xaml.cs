@@ -34,6 +34,7 @@ namespace BuckApp.Windows
         {
             InitializeComponent();
             DataContext = MainWindow.dataGridAdminPanel.grid.SelectedItem as Book;
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -83,75 +84,35 @@ namespace BuckApp.Windows
 
             if (MainWindow.authorContainer.SelectedItemAuthor != null && MainWindow.genreContainer.SelectedItemGenre != null)
             {
-                int book_id = (MainWindow.dataGridAdminPanel.grid.SelectedItem as Book).Id;
-                int genre_id = (MainWindow.dataGridAdminPanel.grid.SelectedItem as Book).Genre.Id;
-                int author_id = (MainWindow.dataGridAdminPanel.grid.SelectedItem as Book).Author.Id;
-                var book = MainWindow.model.Book.Where(q => q.Id == book_id).ToList();
-                var genre = MainWindow.model.Genre.Where(q => q.Id == genre_id).ToList();
-                var author = MainWindow.model.Author.Where(q => q.Id == author_id).ToList();
+                Book book = MainWindow.login.adminViewModel.Books.Single(q => q.Id == (MainWindow.dataGridAdminPanel.grid.SelectedItem as Book).Id);
 
- 
-                genre[0].Name = MainWindow.genreContainer.SelectedItemGenre.Name;
-                author[0].FName = MainWindow.authorContainer.SelectedItemAuthor.FName;
-                author[0].LName = MainWindow.authorContainer.SelectedItemAuthor.LName;
-                author[0].MName = MainWindow.authorContainer.SelectedItemAuthor.MName;
+                Genre genre = MainWindow.model.Genre.Single(q=>q.Id == MainWindow.genreContainer.SelectedItemGenre.Id);
+                
+                book.Genre = genre;
 
-                book[0].Name = name.Text;
-                book[0].Description = description.Text;
-                book[0].ContentText = bytes;
-                book[0].Cover = ImageToByte(image);
-                book[0].Cost = int.Parse(price.Text);
-                book[0].Discount = int.Parse(discount.Text);
-                book[0].Year = int.Parse(year.Text);
+                book.Name = name.Text;
+                book.Description = description.Text;
+                book.Year = int.Parse(year.Text);
+                book.Cost = int.Parse(price.Text);
+                book.Discount = int.Parse(discount.Text);
+                book.Cover= ImageToByte(image);
+                book.ContentText = bytes;
 
-                MainWindow.model.Entry(book[0]).State = System.Data.Entity.EntityState.Modified;
-                MainWindow.model.Entry(genre[0]).State = System.Data.Entity.EntityState.Modified;
-                MainWindow.model.Entry(author[0]).State = System.Data.Entity.EntityState.Modified;
+
+                Author author = MainWindow.model.Author.Single(q => q.Id == MainWindow.authorContainer.SelectedItemAuthor.Id);
+
+                book.Author = author;
+
                 MainWindow.model.SaveChanges();
 
-                foreach (var item in MainWindow.book.ViewModel.Book.Where(q=>q.Id == book_id).ToList())
-                {
-                    item.Cover = ImageToByte(image);
-                }
 
-                // перевызываем конструкторы классов
 
-                MainWindow.login.adminViewModel = new ViewModel.AdminViewModel();
-                MainWindow.book.ViewModel = new ViewModel.StoreBook_ViewModel();
+
 
                 MessageBox.Show("Обновление успешно завершено!");
             }
             else if (MainWindow.authorContainer.EmptyFields() == true && MainWindow.genreContainer.EmptyFields() == true)
             {
-                int book_id = (MainWindow.dataGridAdminPanel.grid.SelectedItem as Book).Id;
-                int genre_id = (MainWindow.dataGridAdminPanel.grid.SelectedItem as Book).Genre.Id;
-                int author_id = (MainWindow.dataGridAdminPanel.grid.SelectedItem as Book).Author.Id;
-                var book = MainWindow.model.Book.Where(q => q.Id == book_id).ToList();
-                var genre = MainWindow.model.Genre.Where(q => q.Id == genre_id).ToList();
-                var author = MainWindow.model.Author.Where(q => q.Id == author_id).ToList();
-
-                book[0].Name = name.Text;
-                book[0].Description = description.Text;
-                genre[0].Name = MainWindow.genreContainer.NameGenre;
-                author[0].FName = MainWindow.authorContainer.FName;
-                author[0].LName = MainWindow.authorContainer.LName;
-                author[0].MName = MainWindow.authorContainer.MName;
-                book[0].ContentText = bytes;
-                book[0].Cover = ImageToByte(image);
-                book[0].Cost = int.Parse(price.Text);
-                book[0].Discount = int.Parse(discount.Text);
-                book[0].Year = int.Parse(year.Text);
-
-                MainWindow.model.Entry(book[0]).State = System.Data.Entity.EntityState.Modified;
-                MainWindow.model.Entry(genre[0]).State = System.Data.Entity.EntityState.Modified;
-                MainWindow.model.Entry(author[0]).State = System.Data.Entity.EntityState.Modified;
-                MainWindow.model.SaveChanges();
-
-                // перевызываем конструкторы классов
-
-                MainWindow.login.adminViewModel = new ViewModel.AdminViewModel();
-                MainWindow.book.ViewModel = new ViewModel.StoreBook_ViewModel();
-
                 MessageBox.Show("Обновление успешно завершено!");
             }
             else if (MainWindow.authorContainer.EmptyFields() == false && MainWindow.authorContainer.SelectedItemAuthor != null)

@@ -634,11 +634,11 @@
                      Margin="30"
                      Text="{Binding FilterText, UpdateSourceTrigger=PropertyChanged}"
                      x:Name="filterBox">
-                    
+
             </TextBox>
         </DockPanel>
 
-        
+
         <TabControl Style="{DynamicResource TabControlStyle1}" Grid.RowSpan="2" Grid.Row="1" Grid.Column="1">
             <TabItem Style="{DynamicResource TabItemStyle1}" Header="Главная"
                      Height="58"
@@ -670,7 +670,7 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
 
-                                <Border Height="485" Width="332" Background="#D4D5C6" CornerRadius="30" Margin="30">
+                                <!--<Border Height="485" Width="332" Background="#D4D5C6" CornerRadius="30" Margin="30">
                                     <StackPanel>
                                         <Image Source="{Binding Cover}"
                                                Height="400"
@@ -694,14 +694,144 @@
                                     <Border.Effect>
                                         <DropShadowEffect BlurRadius="30" Opacity="0.1" Color="Black" ShadowDepth="0"/>
                                     </Border.Effect>
+                                </Border>-->
+
+                                <Border Height="550"
+                                        Width="330"
+                                        BorderThickness="1"
+                                        BorderBrush="LightGray"
+                                        Background="Transparent"
+                                        Margin="20">
+                                    <Grid Margin="10">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="30"/>
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+
+                                        <Grid Grid.Row="0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="275"/>
+                                                <ColumnDefinition Width="30"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Text="{Binding Genre.Name}"
+                                                       FontSize="18"
+                                                       Opacity="0.5"
+                                                       Grid.Column="0"
+                                                       Width="260"
+                                                       ToolTip="{Binding Genre.Name}"/>
+                                            <ComboBox Grid.Column="1">
+                                                <ComboBoxItem>Отложить</ComboBoxItem>
+                                                <ComboBoxItem>Читать фрагмент</ComboBoxItem>
+                                            </ComboBox>
+                                        </Grid>
+
+                                        <Image Source="{Binding Cover}"
+                                               Height="400"
+                                               Width="320"
+                                               Stretch="Fill"
+                                               Grid.Row="1"
+                                               VerticalAlignment="Top"
+                                               Margin="0,10,0,0"/>
+
+                                        <Border Panel.ZIndex="1"
+                                                Background="#1a0000"
+                                                Height="180"
+                                                VerticalAlignment="Bottom"
+                                                Grid.Row="1"
+                                                Opacity="0.8">
+                                            <Grid Margin="15">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition/>
+                                                    <RowDefinition Height="30"/>
+                                                </Grid.RowDefinitions>
+                                                <StackPanel Grid.Row="0">
+                                                    <TextBlock Text="{Binding Name}" 
+                                                           Style="{StaticResource TextBlockStandart}"
+                                                           FontSize="18"
+                                                           Foreground="White"
+                                                           TextWrapping="Wrap"
+                                                           FontWeight="Bold"
+                                                           TextAlignment="Left"/>
+
+                                                    <StackPanel Orientation="Horizontal"
+                                                                Margin="0,5,5,5"
+                                                                Opacity="0.6">
+                                                        <TextBlock Text="{Binding Author.LName}"
+                                                               Foreground="White"
+                                                               FontSize="16"
+                                                               TextAlignment="Center"/>
+                                                        <TextBlock Text="{Binding Author.FName}"
+                                                               Foreground="White"
+                                                               FontSize="16"
+                                                               TextAlignment="Center"
+                                                               Margin="5,0,5,0"/>
+                                                        <TextBlock Text="{Binding Author.MName}"
+                                                               Foreground="White"
+                                                               FontSize="16"
+                                                               TextAlignment="Center"/>
+                                                    </StackPanel>
+
+                                                </StackPanel>
+
+                                                <Grid Grid.Row="1">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition/>
+                                                        <ColumnDefinition/>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <StackPanel Grid.Column="0"
+                                                                Orientation="Horizontal">
+
+                                                        <Border CornerRadius="5"
+                                                                Background="Transparent"
+                                                                BorderThickness="1"
+                                                                BorderBrush="Red">
+                                                             <TextBlock 
+                                                                   Margin="5"
+                                                                   FontSize="16"
+                                                                   Foreground="White"
+                                                                   x:Name="price"
+                                                                   Initialized="price_Initialized"
+                                                                   VerticalAlignment="Center"/>
+                                                        </Border>
+                                                        
+                                                        <TextBlock 
+                                                               Foreground="White"
+                                                               FontSize="16"
+                                                               x:Name="discount"
+                                                               Initialized="discount_Initialized"
+                                                               VerticalAlignment="Center"/>
+
+                                                       
+                                                    </StackPanel>
+
+
+
+                                                    <Button Grid.Column="1"
+                                                        HorizontalAlignment="Right"
+                                                        Width="80"
+                                                        Background="Red"
+                                                        Foreground="White"
+                                                        Content="Купить"
+                                                        FontSize="16"
+                                                        BorderBrush="Transparent"
+                                                        BorderThickness="0"/>
+                                                </Grid>
+
+
+                                            </Grid>
+
+
+                                        </Border>
+                                    </Grid>
                                 </Border>
-                                
+
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
 
                 </Grid>
-                
+
             </TabItem>
             <TabItem Style="{DynamicResource TabItemStyle1}" Header="Новинки"
                      Height="58"

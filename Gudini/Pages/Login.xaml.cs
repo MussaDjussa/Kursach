@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using BuckApp.Model;
 using BuckApp.ViewModel;
+using BuckApp.Windows;
 
 namespace BuckApp.Pages
 {
@@ -56,7 +57,8 @@ namespace BuckApp.Pages
                 }
                 else if (UserLogin() != null && UserLogin().Role.Id == 1)
                 {
-                    NavigationService.Navigate(new LoginAdmin());
+                    //NavigationService.Navigate(new LoginAdmin());
+                    new DataGridAdminPanel().Show();
                 }
                 else
                 {

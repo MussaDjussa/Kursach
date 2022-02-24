@@ -19,13 +19,15 @@ namespace BuckApp.ViewModel
         private string _filtertext;
         
         private ICollectionView _collectionView;
-        public  ObservableCollection<Book> Book { get; set; } = new ObservableCollection<Book>();
-     
-        /// <summary>
-        /// Добавление книг в коллекцию для tabcontrol
-        /// </summary>
-        public ObservableCollection<Book> BookCollection { get; } = new ObservableCollection<Book>();
 
+        /// <summary>
+        /// Основная коллекция книг 
+        /// </summary>
+        public  ObservableCollection<Book> Book { get; set; } = new ObservableCollection<Book>();
+
+        /// <summary>
+        /// Коллекция книг пользователя
+        /// </summary>
         public ObservableCollection<User_Book> BookUser { get; set; } = new ObservableCollection<User_Book>();
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -36,7 +38,6 @@ namespace BuckApp.ViewModel
             {
                 _selectedItem = value;
                 OnPropertyChanged("SelectedItem");
-                //BookCollection.Add(value);
             }
         }
 
@@ -48,24 +49,6 @@ namespace BuckApp.ViewModel
             {
                 _selecteditemUserBook = value;
                 OnPropertyChanged("SelectedItem_UserBook");
-                //BookCollection.Add(value);
-            }
-        }
-        public string ConvertedText
-        {
-            get
-            {
-                return BytesToString(SelectedItem.ContentText);
-            }
-        }
-        private string BytesToString(byte[] contentText)
-        {
-            using (MemoryStream stream = new MemoryStream(contentText))
-            {
-                using (StreamReader streamReader = new StreamReader(stream))
-                {
-                    return streamReader.ReadToEnd();
-                }
             }
         }
 

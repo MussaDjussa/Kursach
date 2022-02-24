@@ -13,11 +13,36 @@
         WindowStyle="None"
         AllowsTransparency="True">
     <Border Background="LightGray">
-    <Border Background="White"  Height="800" Width="1500">
-        <Frame NavigationUIVisibility="Hidden" 
+        <Grid HorizontalAlignment="Center"
+              VerticalAlignment="Center"
+              Background="Transparent"
+              Width="1700">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="1500"/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="1" Background="White"  Height="800" Width="1500">
+                <Frame NavigationUIVisibility="Hidden" 
                x:Name="frame_navigation"/>
-            <Border.Effect>
-                <DropShadowEffect BlurRadius="50" ShadowDepth ="0" Opacity="0.2"/>
-            </Border.Effect>
-    </Border></Border>
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="50" ShadowDepth ="0" Opacity="0.2"/>
+                </Border.Effect>
+            </Border>
+
+
+            <Button Height="60"
+                    Width="60"
+                    VerticalAlignment="Top"
+                    Content="❌"
+                    FontSize="40"
+                    FontWeight="Bold"
+                    Opacity="0.8"
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    BorderThickness="2"
+                    Grid.Column="2"
+                    ToolTip="Назад к авторизации" Click="Button_Click"/>
+        </Grid>
+    </Border>
 </Window>

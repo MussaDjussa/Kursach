@@ -1,4 +1,5 @@
-﻿using BuckApp.Model;
+﻿using BuckApp.Container;
+using BuckApp.Model;
 using BuckApp.Pages;
 using BuckApp.ViewModel;
 using BuckApp.Windows;
@@ -11,7 +12,7 @@ namespace BuckApp
         /// <summary>
         /// модель, через которую идёт обращение к БД
         /// </summary>
-        public static BuckDBEntities model = new BuckDBEntities();
+        public static BookDBEntities model = new BookDBEntities();
 
         /// <summary>
         /// создание стартовой страницы в началае навигационного стека
@@ -53,6 +54,28 @@ namespace BuckApp
         /// создание окна Добавление Жанра
         /// </summary>
         public static AddGenre addGenre = new AddGenre();
+        
+
+        /// <summary>
+        /// создание контейнера для хранения жанра
+        /// </summary>
+        public static GenreContainter genreContainer = new GenreContainter();
+
+
+        /// <summary>
+        /// создание контейнера для хранения автора
+        /// </summary>
+        public static AuthorContainer authorContainer = new AuthorContainer();
+
+        /// <summary>
+        /// создание DataGrid Admin Panel
+        /// </summary>
+        public static DataGridAdminPanel dataGridAdminPanel = new DataGridAdminPanel();
+
+        /// <summary>
+        /// создание окна для изменения данных книг
+        /// </summary>
+        public static EditWindow editWindow = new EditWindow();
 
         /// <summary>
         /// Инициализация навигацинного стека для страниц
@@ -62,6 +85,11 @@ namespace BuckApp
         {
             InitializeComponent();
             frame_navigation.Content = startUp;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            frame_navigation.Navigate(MainWindow.startUp);
         }
     }
 }

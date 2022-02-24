@@ -85,7 +85,8 @@
                         <TextBox Style="{StaticResource TextBoxStyle_Standart}"
                          Height="60"
                          Width="400"
-                         x:Name="name"/>
+                         x:Name="name"
+                         TextChanged="name_TextChanged"/>
                         <TextBlock Text="Автор"
                            Style="{StaticResource TextBlockStandart}"
                            Margin="20,40,0,0"
@@ -112,7 +113,8 @@
                            FontSize="30"/>
                         <TextBox x:Name="year" Style="{StaticResource TextBoxStyle_Standart}"
                          Height="60"
-                         Width="400"/>
+                         Width="400"
+                         TextChanged="year_TextChanged"/>
                         <TextBlock Text="Цена"
                            Style="{StaticResource TextBlockStandart}"
                            Margin="20,40,0,0"
@@ -121,7 +123,8 @@
                         Width="400"
                         FontSize="20"
                         Style="{StaticResource TextBoxStyle_Standart}"
-                        x:Name="price"/>
+                        x:Name="price"
+                        TextChanged="price_TextChanged"/>
                         <TextBlock Text="Скидка"
                            Style="{StaticResource TextBlockStandart}"
                            Margin="20,40,0,0"
@@ -129,7 +132,8 @@
                         <TextBox Height="60"
                          Style="{StaticResource TextBoxStyle_Standart}"
                          Width="400"
-                         x:Name="discount"/>
+                         x:Name="discount"
+                         TextChanged="discount_TextChanged"/>
                     </StackPanel>
                 </StackPanel>
 
@@ -139,7 +143,7 @@
                            Margin="70,10,0,0"/>
                 <TextBox Width="900"
                          HorizontalAlignment="Left"
-                         Margin="50,0,0,0"
+                         Margin="50,0,10,0"
                          Height="170"
                          x:Name="description"/>
             </StackPanel>

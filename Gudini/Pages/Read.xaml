@@ -10,6 +10,8 @@
       Title="Read">
 
     <Grid Background="White">
-        <TextBlock Text="{Binding Name}"/>
+        <FlowDocumentReader x:Name="reader">
+            
+        </FlowDocumentReader>
     </Grid>
 </Page>

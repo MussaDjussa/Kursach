@@ -19,6 +19,7 @@ namespace BuckApp.Model
         public Nullable<int> Id_Book { get; set; }
         public Nullable<int> Id_Status { get; set; }
         public Nullable<float> Rating { get; set; }
+        public Nullable<System.DateTime> Date_Buy { get; set; }
     
         public virtual Book Book { get; set; }
         public virtual Status Status { get; set; }

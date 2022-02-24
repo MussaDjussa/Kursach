@@ -1,4 +1,5 @@
-﻿using BuckApp.ViewModel;
+﻿using BuckApp.Model;
+using BuckApp.ViewModel;
 using BuckApp.Windows;
 using System.Windows;
 using System.Windows.Controls;
@@ -27,6 +28,47 @@ namespace BuckApp.Pages
         private void ListView_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
             NavigationService.Navigate(new MoreDetails_StoreBook_User());
+        }
+
+        private void discount_Initialized(object sender, System.EventArgs e)
+        {
+            TextBlock textBlock = sender as TextBlock;
+            Book user_Book = (sender as TextBlock).DataContext as Book;
+            Book book = user_Book;
+
+            if (book.Discount > 0)
+            {
+                textBlock.Text = $" -{book.Discount}% {book.TotalCost} ₽";
+            }
+            else if (book.Cost == 0)
+            {
+                textBlock.Text = $"";
+            }
+
+        }
+
+        private void price_Initialized(object sender, System.EventArgs e)
+        {
+            TextBlock textBlock = sender as TextBlock;
+
+
+            Book user_Book = (sender as TextBlock).DataContext as Book;
+            Book book = user_Book;
+
+            if (book.Discount > 0)
+            {
+                textBlock.TextDecorations = TextDecorations.Strikethrough;
+
+                textBlock.Text = $"{book.Cost} ₽";
+            }
+            else
+            {
+                textBlock.Text = $"{book.Cost} ₽";
+            }
+            if (book.Cost == 0)
+            {
+                textBlock.Text = $"Бесплатно";
+            }
         }
     }
 }

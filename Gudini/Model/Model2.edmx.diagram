@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2c8d9e133728457f8ad795fe3d48d906" Name="Diagram1">
+        <EntityTypeShape EntityType="BookDBModel.Author" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookDBModel.Book" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookDBModel.Genre" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookDBModel.Role" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookDBModel.Status" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookDBModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookDBModel.User" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookDBModel.User_Book" Width="1.5" PointX="5.25" PointY="1.625" IsExpanded="true" />
+        <AssociationConnector Association="BookDBModel.FK_Book_Author" ManuallyRouted="false" />
+        <AssociationConnector Association="BookDBModel.FK_Book_Genre" ManuallyRouted="false" />
+        <AssociationConnector Association="BookDBModel.FK_User_Book_Book" ManuallyRouted="false" />
+        <AssociationConnector Association="BookDBModel.FK_User_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="BookDBModel.FK_User_Book_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="BookDBModel.FK_User_Book_User" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

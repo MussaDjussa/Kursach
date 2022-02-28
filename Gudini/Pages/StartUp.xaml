@@ -1,0 +1,98 @@
+﻿<Page x:Class="BuckApp.Pages.StartUp"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BuckApp.Pages"
+      mc:Ignorable="d"
+      Height="800"
+      Width="1500"
+      Title="StartUp"
+      >
+
+    <Border CornerRadius="50">
+        <Grid Background="#FBF8F1">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="580"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="120"/>
+        </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0"
+            VerticalAlignment="Top"
+            Margin="20"
+            Panel.ZIndex="1">
+
+                <TextBlock Text="Мир Книг"
+               FontFamily="PT Serif"
+               FontSize="96"
+               Foreground="#601818"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               FontWeight="Bold"
+               Opacity="0.8"/>
+                <TextBlock Text="Согласно статистическим исследованиям книги, на данный момент, являются одними из самых лучших видов развлечения и отдыха. "
+               FontFamily="PT Serif"
+               FontSize="24"
+               Foreground="#601818"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               FontWeight="Normal"
+               TextWrapping="Wrap"
+               Margin="28"
+               TextAlignment="Justify"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1"
+                        VerticalAlignment="Center" Grid.ColumnSpan="2">
+                <Button Style="{StaticResource ButtonStyle_Standart}"
+                        Height="40"
+                        Width="220"
+                        Content="Регистрация" Click="Button_Click_1"/>
+                <Button Style="{StaticResource ButtonStyle_Standart}"
+                        Height="40"
+                        Width="220"
+                        Content="Войти"
+                        Margin="0,10,0,0"
+                        BorderThickness="0"
+                        Background="Transparent" Click="Button_Click_2"/>
+            </StackPanel>
+
+
+
+            <Grid Grid.Column="2">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Button Width="100"
+                        Height="40"
+                        VerticalAlignment="Top"
+                        Grid.Row="0"
+                        Margin="0,40,0,40"
+                        HorizontalAlignment="Center"
+                        Style="{StaticResource ButtonStyle_Standart}"
+                        Background="Transparent"
+                        Content="Выход"
+                        BorderThickness="0"
+                        Click="Button_Click"/>
+
+
+                
+            </Grid>
+
+
+        
+
+        <Border Grid.RowSpan="2" Grid.Column="0" Panel.ZIndex="0">
+                <Image Opacity="0.2"  Stretch="UniformToFill" 
+                   Source="C:\Users\amush\Desktop\gudini\Gudini\Images\Leadership-Books-on-Bookshelves-scaled.jpg"/>
+            </Border>
+
+
+
+    </Grid>
+    </Border>
+</Page>

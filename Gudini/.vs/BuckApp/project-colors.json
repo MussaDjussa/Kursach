@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "d11c634d-1c8f-4690-aac0-a70b02f28dcf": {
+      "ProjectGuid": "d11c634d-1c8f-4690-aac0-a70b02f28dcf",
+      "DisplayName": "BuckApp",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "5e60c62b-ed5e-4805-af81-16a4c4466a26": {
+      "ProjectGuid": "5e60c62b-ed5e-4805-af81-16a4c4466a26",
+      "DisplayName": "MVVM_TestApplication",
+      "ColorIndex": 1
+    },
+    "27c340c7-824b-4224-a0b4-310a26abc626": {
+      "ProjectGuid": "27c340c7-824b-4224-a0b4-310a26abc626",
+      "DisplayName": "WpfApp1",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}
